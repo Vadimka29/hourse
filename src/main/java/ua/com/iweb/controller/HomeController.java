@@ -13,6 +13,7 @@ public class HomeController {
 
 	@RequestMapping(value="/")
 	public ModelAndView test(HttpServletResponse response) throws IOException{
+        //comment
 		return new ModelAndView("home");
 	}
 }
