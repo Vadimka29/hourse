@@ -15,15 +15,10 @@ import java.io.IOException;
  */
 @Controller
 public class OrderController {
-    @RequestMapping(value="/order")
-    public ModelAndView test(HttpServletResponse response) throws IOException {
-        //comment
-        return new ModelAndView("addOrder");
-    }
-    @RequestMapping(value="/rest/order", method = RequestMethod.POST)
-    public ModelAndView test(HttpServletResponse response, @RequestParam("editor1") String s) throws IOException {
-        //comment
-        System.out.println(s);
-        return new ModelAndView("addOrder");
-    }
+//    @RequestMapping(value="/rest/order", method = RequestMethod.POST)
+//    public ModelAndView test(HttpServletResponse response, @RequestParam("editor1") String s) throws IOException {
+//        //comment
+//        System.out.println(s);
+//        return new ModelAndView("addOrder");
+//    }
 }
