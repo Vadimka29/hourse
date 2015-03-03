@@ -30,7 +30,7 @@
 					
 					<div class="cols col-8 centered">
 						<div class="logoWrapper">
-								<img src="img/logoFull.png" alt="">
+								<img src="/resources/img/logoFull.png" alt="">
 								<div class="border"></div>
 						</div>
 						<div class="menuWrapper">
@@ -57,9 +57,9 @@
 							</div>
 
 							<div class="imageWrapper">
-								<img src="img/slider/slide1.jpg" alt="" class="active">
-								<img src="img/slider/slide2.jpg" alt="" >
-								<img src="img/slider/slide3.jpg" alt="" >
+								<img src="/resources/img/slider/slide1.jpg" alt="" class="active">
+								<img src="/resources/img/slider/slide2.jpg" alt="" >
+								<img src="/resources/img/slider/slide3.jpg" alt="" >
 							</div>
 						</div>
 					</div>

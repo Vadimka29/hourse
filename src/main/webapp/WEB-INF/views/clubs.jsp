@@ -29,7 +29,7 @@
 					
 					<div class="cols col-8 centered">
 						<div class="logoWrapper">
-								<img src="img/logoFull.png" alt="">
+								<img src="/resources/img/logoFull.png" alt="">
 								<div class="border"></div>
 						</div>
 						<div class="menuWrapper">
@@ -54,33 +54,33 @@
 							<div class="mainBlock">
 							<h3 class="blockTitle">конные клубы</h3>
 							<div class="logoSmall">
-								<img src="img/horseSmall2.png" alt="">
+								<img src="/resources/img/horseSmall2.png" alt="">
 							</div>
 								<div class="icons">
 									<div class="row">
 										<div class="cols col-3">
 											<div class="item">
-												<img src="img/horseClubs/georg.png" alt="">
+												<img src="/resources/img/horseClubs/georg.png" alt="">
 
 											</div>
 											<div class="cols col-12 title">Конный клуб "Georg"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/grandHorse.png" alt="">
+												<img src="/resources/img/horseClubs/grandHorse.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Grand Horse"</div>
 
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/horseClub.png" alt="">
+												<img src="/resources/img/horseClubs/horseClub.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Horse Clubs"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/konigoni.png" alt="">
+												<img src="/resources/img/horseClubs/konigoni.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Кони-Пони"</div>
 										</div>
@@ -88,25 +88,25 @@
 									<div class="row">
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/nikolo.png" alt="">
+												<img src="/resources/img/horseClubs/nikolo.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Nicolo"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/podkova.png" alt="">
+												<img src="/resources/img/horseClubs/podkova.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Подкова"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/traken.png" alt="">
+												<img src="/resources/img/horseClubs/traken.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Traken"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/whitehorse.png" alt="">
+												<img src="/resources/img/horseClubs/whitehorse.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Белая Лошадь"</div>
 										</div>
@@ -116,27 +116,27 @@
 									<div class="row">
 										<div class="cols col-3">
 											<div class="item">
-												<img src="img/horseClubs/georg.png" alt="">
+												<img src="/resources/img/horseClubs/georg.png" alt="">
 
 											</div>
 											<div class="cols col-12 title">Конный клуб "Georg"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/grandHorse.png" alt="">
+												<img src="/resources/img/horseClubs/grandHorse.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Grand Horse"</div>
 
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/horseClub.png" alt="">
+												<img src="/resources/img/horseClubs/horseClub.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Horse Clubs"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/konigoni.png" alt="">
+												<img src="/resources/img/horseClubs/konigoni.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Кони-Пони"</div>
 										</div>
@@ -144,25 +144,25 @@
 									<div class="row">
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/nikolo.png" alt="">
+												<img src="/resources/img/horseClubs/nikolo.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Nicolo"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/podkova.png" alt="">
+												<img src="/resources/img/horseClubs/podkova.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Подкова"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/traken.png" alt="">
+												<img src="/resources/img/horseClubs/traken.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Traken"</div>
 										</div>
 										<div class="cols col-3">
 											<div  class="item">
-												<img src="img/horseClubs/whitehorse.png" alt="">
+												<img src="/resources/img/horseClubs/whitehorse.png" alt="">
 											</div>
 											<div class="cols col-12 title">Конный клуб "Белая Лошадь"</div>
 										</div>

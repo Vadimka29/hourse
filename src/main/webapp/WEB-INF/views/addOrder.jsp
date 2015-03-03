@@ -30,7 +30,7 @@
                     
                     <div class="cols col-8 centered">
                         <div class="logoWrapper">
-                                <img src="img/logoFull.png" alt="">
+                                <img src="/resources/img/logoFull.png" alt="">
                                 <div class="border"></div>
                         </div>
                         <div class="menuWrapper">
@@ -55,7 +55,7 @@
                             <div class="mainBlock addOrder">
                             <h3 class="blockTitle">Добавление в продажу</h3>
                             <div class="logoSmall">
-                                <img src="img/cartSmall3.png" alt="">
+                                <img src="/resources/img/cartSmall3.png" alt="">
                             </div>
                             <div class="row">
                                 <form method="post" action="" id="addSaleForm">

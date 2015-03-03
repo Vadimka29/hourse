@@ -30,7 +30,7 @@
                     
                     <div class="cols col-8 centered">
                         <div class="logoWrapper">
-                                <img src="img/logoFull.png" alt="">
+                                <img src="/resources/img/logoFull.png" alt="">
                                 <div class="border"></div>
                         </div>
                        <div class="menuWrapper">
@@ -56,7 +56,7 @@
                             <h3 class="blockTitle">Продажа <span  class="addNewSale" onclick="location.href='addOrder.jsp'"><div class="triangle"></div>[ Добавить объявление ]</span> </h3>
 
                             <div class="logoSmall">
-                                <img src="img/cartSmall3.png" alt="">
+                                <img src="/resources/img/cartSmall3.png" alt="">
                             </div>
                            <div class="row">
                            	

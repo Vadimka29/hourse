@@ -31,7 +31,7 @@
 					
 					<div class="cols col-8 centered">
 						<div class="logoWrapper">
-								<img src="img/logoFull.png" alt="">
+								<img src="/resources/img/logoFull.png" alt="">
 								<div class="border"></div>
 						</div>
 						<div class="menuWrapper">
@@ -56,7 +56,7 @@
 							<div class="mainBlock register">
 							<h3 class="blockTitle">регистрация / авторизация</h3>
 							<div class="logoSmall">
-								<img src="img/newUser.png" alt="">
+								<img src="/resources/img/newUser.png" alt="">
 							</div>
 								<div class="row loginAction">
 									<h3 class="title">Логин</h3>

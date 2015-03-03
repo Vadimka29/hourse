@@ -30,7 +30,7 @@
                     
                     <div class="cols col-8 centered">
                         <div class="logoWrapper">
-                                <img src="img/logoFull.png" alt="">
+                                <img src="/resources/img/logoFull.png" alt="">
                                 <div class="border"></div>
                         </div>
                        
@@ -59,7 +59,7 @@
                             <div class="mainBlock">
                             <h3 class="blockTitle">галерея</h3>
                             <div class="logoSmall">
-                                <img src="img/galeryNew.png" alt="">
+                                <img src="/resources/img/galeryNew.png" alt="">
                             </div>
 
 
@@ -227,9 +227,9 @@
 
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="js/gamma/jquery.masonry.min.js"></script>
-        <script src="js/gamma/jquerypp.custom.js"></script>
-        <script src="js/gamma/gamma.js"></script>
+        <script src="/resources/js/gamma/jquery.masonry.min.js"></script>
+        <script src="/resources/js/gamma/jquerypp.custom.js"></script>
+        <script src="/resources/js/gamma/gamma.js"></script>
         <script type="text/javascript">
             $(function() {
                 var GammaSettings = {
