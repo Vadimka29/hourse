@@ -23,6 +23,7 @@ $('document').ready(function(){
 		data["email"] = $('#registerActionEmail').val();
 		data["login"] = $('#registerActionLogin').val();
 		data["password"] = $('#registerActionPassword').val();
+        data["password2"] = $('#registerActionPassword2').val();
 		data = JSON.stringify(data);
 		$.ajax({
   			type: 'POST',

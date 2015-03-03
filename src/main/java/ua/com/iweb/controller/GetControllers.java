@@ -36,7 +36,7 @@ public class GetControllers {
     public ModelAndView getGallery(HttpServletResponse response) throws IOException{
         return new ModelAndView("gallery");
     }
-    @RequestMapping(method = RequestMethod.GET, value="/register")
+    @RequestMapping(method = RequestMethod.GET, value="/authorization")
     public ModelAndView getRegister(HttpServletResponse response) throws IOException{
         return new ModelAndView("register");
     }
@@ -44,5 +44,8 @@ public class GetControllers {
     public ModelAndView getSale(HttpServletResponse response) throws IOException{
         return new ModelAndView("sale");
     }
-
+    @RequestMapping(method = RequestMethod.GET, value="/blog")
+    public ModelAndView getBlog(HttpServletResponse response) throws IOException{
+        return new ModelAndView("blog");
+    }
 }

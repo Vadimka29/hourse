@@ -36,14 +36,14 @@
 						</div>
 						<div class="menuWrapper">
                         <ul>
-                            <li class="transition"><a href="#" class="transition">федерация</a>
+                            <li class="transition"><a href="/" class="transition">федерация</a>
                                 <ul class="transition">
                                     <li><a href="#">О федерации</a></li>
                                     <li><a href="#">Спонсоры</a></li>
                                     <li><a href="#">Контакты</a></li>
                                 </ul>
                             </li>
-                            <li class="transition"><a href="blog.html" class="transition">блог</a></li>
+                            <li class="transition"><a href="/blog" class="transition">блог</a></li>
                             <li class="transition"><a href="/clubs" class="transition">конные клубы</a></li>
                             <li class="transition"><a href="/gallery" class="transition">галерея</a></li>
                             <li class="transition"><a href="/sale" class="transition">продажа</a></li>
@@ -62,7 +62,7 @@
 									<h3 class="title">Логин</h3>
 									<input type="text" id="loginActionLogin">
 										<h3 class="title">Пароль</h3>
-									<input type="text" id="loginActionPassword">
+									<input type="password" id="loginActionPassword">
 									<div class="submit loginAction">Войти</div>
 								</div>
 
@@ -77,7 +77,9 @@
 									<h3 class="title">Логин</h3>
 								<input type="text" id="registerActionLogin">
 									<h3 class="title">Пароль</h3>
-								<input type="text" id="registerActionPassword">
+								<input type="password" id="registerActionPassword">
+                                    <h3 class="title">Повторите пароль</h3>
+                                <input type="password" id="registerActionPassword2">
 									<div class="submit registerAction">Зарегистрироваться</div>
 								</div>
 							</div>
@@ -92,7 +94,7 @@
 					<div class="cols col-7">
 						2014-2015, Федерация конного спорта Полтавы. All Rights Reserved
 					</div>
-					<div class="cols col-5"><a class="registrationLink" href="/register">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
+					<div class="cols col-5"><a class="registrationLink" href="/authorization">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
 				</div>
 			</div>
 		</div>

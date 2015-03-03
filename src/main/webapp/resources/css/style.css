@@ -1,18 +1,5 @@
 @import url('demo.css');
 
-/* Entypo Icon Font */
-@font-face {
-  font-family: 'entypo-selected';
-  src: url("../font/entypo-selected.eot");
-  src: 
-	  url("../font/entypo-selected.eot?#iefix") format('embedded-opentype'), 
-	  url("../font/entypo-selected.woff") format('woff'), 
-	  url("../font/entypo-selected.ttf") format('truetype'), 
-	  url("../font/entypo-selected.svg#entypo-selected") format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* Gamma Gallery Style */
 
 .gamma-container {
@@ -260,17 +247,6 @@ button.gamma-btn-sspause:before {
 	left: 0;
 	z-index: 99999;
 }
-
-/* Loaders */
-
-.gamma-loading {
-	background: transparent url(../images/loader_light.gif) no-repeat center center;
-}
-
-.gamma-single-view.gamma-loading {
-	background: transparent url(../images/loader_dark.gif) no-repeat center center;
-}
-
 
 /* Make some things unselectable. Remove where selection is needed: */
 

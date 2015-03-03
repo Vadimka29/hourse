@@ -27,7 +27,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "user_login")
+    @Column(name = "user_login", unique = true)
     public String getUserLogin() {
         return userLogin;
     }
