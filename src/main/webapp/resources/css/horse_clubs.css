@@ -1,0 +1,24 @@
+.icons>div>.cols{
+	padding:1em;
+}
+.icons>div .cols .item{
+	width: 100%;
+	min-height: 10em;
+	padding: 1em 1em 1em 1em;
+	border-bottom: 1px solid #EAEAEA;
+	/*box-shadow:inset 0px -1px 5px rgba(99,99,99,.24)*/
+}
+.icons>div .cols .item img{
+	max-width: 100%;
+}
+.icons  .title{
+	height: auto;
+	/*overflow: hidden;*/
+	padding: 1em 0 0 0;
+	font-weight: bold;
+	font-size: 0.9em;
+	cursor: pointer;
+}
+.icons  .title:hover{
+	text-decoration: underline;
+}
