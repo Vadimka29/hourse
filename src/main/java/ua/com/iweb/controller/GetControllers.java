@@ -1,13 +1,22 @@
 package ua.com.iweb.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.orm.hibernate4.HibernateObjectRetrievalFailureException;
+import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import ua.com.iweb.enteties.UserEntity;
+import ua.com.iweb.service.HibernateService;
 
 /**
  * Created by Vadym on 27.02.2015.
@@ -48,4 +57,21 @@ public class GetControllers {
     public ModelAndView getBlog(HttpServletResponse response) throws IOException{
         return new ModelAndView("blog");
     }
+//    //test
+//    @RequestMapping(method = RequestMethod.GET, value="/users")
+//    @ResponseBody
+//    public String getUser(HttpServletResponse response) throws IOException{
+//        Session session = null;
+//        List<UserEntity> users =  new ArrayList<UserEntity>();
+//        try {
+//            session = HibernateService.getSession();
+//            session.beginTransaction();
+//            users = session.createCriteria(UserEntity.class).list();
+//        } finally {
+//            if(session != null && session.isOpen()) {
+//                session.close();
+//            }
+//        }
+//        return users.toString();
+//    }
 }
