@@ -3,12 +3,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css"/>
-        <link rel="stylesheet" href="css/horse_clubs.css">
-        <link rel="stylesheet" href="css/mainsheet.css">
-        <link rel="stylesheet" href="css/fontawesome.css">
-        <link rel="stylesheet" href="css/gallery.css">
-        <script src="js/gamma/modernizr.custom.70736.js"></script>
+        <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
+        <link rel="stylesheet" href="/resources/css/horse_clubs.css">
+        <link rel="stylesheet" href="/resources/css/mainsheet.css">
+        <link rel="stylesheet" href="/resources/css/fontawesome.css">
+        <link rel="stylesheet" href="/resources/css/gallery.css">
+        <script src="/resources/js/gamma/modernizr.custom.70736.js"></script>
     </head>
     <body>
         <div class="container">

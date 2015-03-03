@@ -12,8 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class GetControllers {
 
 	@RequestMapping(value="/")
-	public ModelAndView test(HttpServletResponse response) throws IOException{
+	public ModelAndView getIndex(HttpServletResponse response) throws IOException{
         //comment
-		return new ModelAndView("home");
+		return new ModelAndView("index");
 	}
 }

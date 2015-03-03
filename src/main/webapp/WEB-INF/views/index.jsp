@@ -1,13 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="css/indexPage.css">
-		<link rel="stylesheet" href="css/mainsheet.css">
-		<link rel="stylesheet" href="css/fontawesome.css">
-		<script src="js/jquery.js"></script>
-		<script src="js/mainPage.js"></script>
-		<script src="js/popup.js"></script>
+		<link rel="stylesheet" href="/resources/css/indexPage.css">
+		<link rel="stylesheet" href="/resources/css/mainsheet.css">
+		<link rel="stylesheet" href="/resources/css/fontawesome.css">
+		<script src="/resources/js/jquery.js"></script>
+		<script src="/resources/js/mainPage.js"></script>
+		<script src="/resources/js/popup.js"></script>
 	</head>
 	<body>
 		<div class="container indexPage">
