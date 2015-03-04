@@ -15,6 +15,7 @@ public class UserEntity {
     private String userPhone;
     private String userEmail;
     private String userCity;
+    private String userPass;
 
     @Id
     @Column(name = "user_id")
@@ -27,7 +28,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "user_login", unique = true)
+    @Column(name = "user_login")
     public String getUserLogin() {
         return userLogin;
     }
@@ -114,5 +115,15 @@ public class UserEntity {
         result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
         result = 31 * result + (userCity != null ? userCity.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "user_pass")
+    public String getUserPass() {
+        return userPass;
+    }
+
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
     }
 }

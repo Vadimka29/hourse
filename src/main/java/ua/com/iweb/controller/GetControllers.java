@@ -3,18 +3,19 @@ package ua.com.iweb.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.orm.hibernate4.HibernateObjectRetrievalFailureException;
-import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import ua.com.iweb.config.DaoBeanConfig;
+import ua.com.iweb.dao.UserDAO;
 import ua.com.iweb.enteties.UserEntity;
 import ua.com.iweb.service.HibernateService;
 
@@ -23,6 +24,7 @@ import ua.com.iweb.service.HibernateService;
  */
 @Controller
 public class GetControllers {
+    private static Object a = new Object();
 
 	@RequestMapping(method = RequestMethod.GET, value="/")
 	public ModelAndView getIndex(HttpServletResponse response) throws IOException{
@@ -58,20 +60,22 @@ public class GetControllers {
         return new ModelAndView("blog");
     }
 //    //test
-//    @RequestMapping(method = RequestMethod.GET, value="/users")
-//    @ResponseBody
-//    public String getUser(HttpServletResponse response) throws IOException{
-//        Session session = null;
-//        List<UserEntity> users =  new ArrayList<UserEntity>();
-//        try {
-//            session = HibernateService.getSession();
-//            session.beginTransaction();
-//            users = session.createCriteria(UserEntity.class).list();
-//        } finally {
-//            if(session != null && session.isOpen()) {
-//                session.close();
-//            }
-//        }
-//        return users.toString();
-//    }
+    @RequestMapping(method = RequestMethod.GET, value="/users")
+    @ResponseBody
+    public String getUser(HttpServletResponse response) throws IOException{
+        Session session = null;
+        List<UserEntity> users =  new ArrayList<UserEntity>();
+        try {
+            session = HibernateService.getSession();
+            session.beginTransaction();
+            users = session.createCriteria(UserEntity.class).list();
+        } finally {
+            if(session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
+        UserDAO userDAO = (UserDAO) context.getBean(UserDAO.class);
+        return a.toString();
+    }
 }
