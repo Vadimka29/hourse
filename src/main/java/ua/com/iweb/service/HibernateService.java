@@ -9,11 +9,10 @@ import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-import java.io.File;
 import java.util.Map;
 
 /**
- * Created by root on 03.03.15.
+ * Created by root on 05.03.15.
  */
 public class HibernateService {
     private static final SessionFactory ourSessionFactory;
@@ -21,9 +20,8 @@ public class HibernateService {
 
     static {
         try {
-            File f = new File("/media/vadym/Multimedia/Ubuntu/WorkSpace/hourse/src/main/java/hibernate.cfg.xml");
             Configuration configuration = new Configuration();
-            configuration.configure(f);
+            configuration.configure();
 
             serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
             ourSessionFactory = configuration.buildSessionFactory(serviceRegistry);

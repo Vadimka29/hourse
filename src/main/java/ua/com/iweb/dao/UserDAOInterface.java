@@ -1,6 +1,7 @@
 package ua.com.iweb.dao;
 
 import ua.com.iweb.enteties.UserEntity;
+import ua.com.iweb.helpfull.Login;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -10,5 +11,6 @@ import java.util.List;
  */
 public interface UserDAOInterface {
     public List<UserEntity> getAllUsers() throws SQLException;
-    public boolean authorizationCheck(String login, String passHash) throws SQLException;
+    public boolean authorizationCheck(Login login) throws SQLException;
+
 }

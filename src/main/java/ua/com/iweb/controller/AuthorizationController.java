@@ -36,7 +36,7 @@ public class AuthorizationController {
         UserDAO userDAO = (UserDAO) context.getBean("userDAO");
         System.out.println(login.getPassword());
         try {
-            if (userDAO.authorizationCheck(login.getLogin(), login.getPassword())) {
+            if (userDAO.authorizationCheck(login)) {
                 session.setAttribute("user", login.getLogin());
             } else {
                 session.setAttribute("user", "unregistered");

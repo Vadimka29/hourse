@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ua.com.iweb.config.DaoBeanConfig;
 import ua.com.iweb.dao.UserDAO;
 import ua.com.iweb.enteties.UserEntity;
-import ua.com.iweb.service.HibernateService;
 
 /**
  * Created by Vadym on 27.02.2015.
@@ -65,7 +64,7 @@ public class GetControllers {
         Session session = null;
         List<UserEntity> users =  new ArrayList<UserEntity>();
         try {
-            session = HibernateService.getSession();
+            session = null;
             session.beginTransaction();
             users = session.createCriteria(UserEntity.class).list();
         } finally {

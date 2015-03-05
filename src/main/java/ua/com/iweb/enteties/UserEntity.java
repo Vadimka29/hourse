@@ -3,7 +3,7 @@ package ua.com.iweb.enteties;
 import javax.persistence.*;
 
 /**
- * Created by root on 03.03.15.
+ * Created by root on 05.03.15.
  */
 @Entity
 @Table(name = "user", schema = "", catalog = "hourse")
@@ -87,6 +87,16 @@ public class UserEntity {
         this.userCity = userCity;
     }
 
+    @Basic
+    @Column(name = "user_pass")
+    public String getUserPass() {
+        return userPass;
+    }
+
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,6 +109,7 @@ public class UserEntity {
         if (userEmail != null ? !userEmail.equals(that.userEmail) : that.userEmail != null) return false;
         if (userLogin != null ? !userLogin.equals(that.userLogin) : that.userLogin != null) return false;
         if (userName != null ? !userName.equals(that.userName) : that.userName != null) return false;
+        if (userPass != null ? !userPass.equals(that.userPass) : that.userPass != null) return false;
         if (userPhone != null ? !userPhone.equals(that.userPhone) : that.userPhone != null) return false;
         if (userSurname != null ? !userSurname.equals(that.userSurname) : that.userSurname != null) return false;
 
@@ -114,16 +125,7 @@ public class UserEntity {
         result = 31 * result + (userPhone != null ? userPhone.hashCode() : 0);
         result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
         result = 31 * result + (userCity != null ? userCity.hashCode() : 0);
+        result = 31 * result + (userPass != null ? userPass.hashCode() : 0);
         return result;
-    }
-
-    @Basic
-    @Column(name = "user_pass")
-    public String getUserPass() {
-        return userPass;
-    }
-
-    public void setUserPass(String userPass) {
-        this.userPass = userPass;
     }
 }

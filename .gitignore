@@ -66,4 +66,5 @@ hs_err_pid*
 .classpath
 .project
 .settings
-src/main/java/hibernate.cfg.xml
+src/main/java/ua/com/iweb/hibernate.cfg.xml
+src/main/webapp/resources/hibernate.cfg.xml
