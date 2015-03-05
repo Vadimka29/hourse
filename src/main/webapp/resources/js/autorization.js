@@ -6,10 +6,10 @@ $('document').ready(function(){
 		data = JSON.stringify(data);
 		$.ajax({
   			type: 'POST',
-			url: '',
+			url: 'login_post',
 			data: data,
 			success: function(data){
-			   // window.location.href="index.jsp"
+			   window.location.href="/";
 			}
 		});
 	});

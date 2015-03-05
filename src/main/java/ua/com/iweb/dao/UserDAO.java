@@ -1,5 +1,6 @@
 package ua.com.iweb.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import ua.com.iweb.enteties.UserEntity;
 import ua.com.iweb.service.HibernateService;
@@ -25,14 +26,18 @@ public class UserDAO implements UserDAOInterface {
         UserEntity user = null;
         try {
             session = HibernateService.getSession();
-            user = (UserEntity) session.get(UserEntity.class, login );
-            if(passHash.equals(user.getUserPass())){
+            String hql = "FROM UserEntity u WHERE u.userLogin = :login";
+            Query query = session.createQuery(hql);
+            query.setParameter("login", login);
+            List<UserEntity> res = query.list();
+            user = (res.size() == 1) ? res.get(0) : null;
+            System.out.println("Proverka: " + passHash.equals(user.getUserPass()));
+            if(passHash.equals(user.getUserPass()) && res.size() == 1){
                 return true;
             }
         } finally {
             if(session != null && session.isOpen()){
                 session.close();
-                return false;
             }
         }
         return false;

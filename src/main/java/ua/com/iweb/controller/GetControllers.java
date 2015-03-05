@@ -24,7 +24,6 @@ import ua.com.iweb.service.HibernateService;
  */
 @Controller
 public class GetControllers {
-    private static Object a = new Object();
 
 	@RequestMapping(method = RequestMethod.GET, value="/")
 	public ModelAndView getIndex(HttpServletResponse response) throws IOException{
@@ -76,6 +75,6 @@ public class GetControllers {
         }
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
         UserDAO userDAO = (UserDAO) context.getBean(UserDAO.class);
-        return a.toString();
+        return "Hello word";
     }
 }
