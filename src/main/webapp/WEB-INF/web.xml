@@ -38,4 +38,27 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+
+    <!--Example-->
+    <!--< servlet >-->
+        <!--   < servlet-name >Connector</ servlet-name >-->
+        <!--   < servlet-class >-->
+        <!--  net.laokboke.servlet.ConnectorServlet-->
+        <!--   </ servlet-class >-->
+        <!--   < init-param >-->
+        <!--   < param-name >baseDir</ param-name >-->
+        <!--   < param-value >/userfiles/</ param-value >-->
+        <!--   </ init-param >-->
+        <!--   < init-param >-->
+        <!--   < param-name >debug</ param-name >-->
+        <!--   < param-value >true</ param-value >-->
+        <!--   </ init-param >-->
+        <!--   < load-on-startup >1</ load-on-startup >-->
+        <!--   </ servlet >-->
+
+    <!--   < servlet-mapping >-->
+    <!--   < servlet-name >Connector</ servlet-name >-->
+    <!--   < url-pattern >/fckeditor/connector</ url-pattern >-->
+    <!--   </ servlet-mapping >-->
+
 </web-app>

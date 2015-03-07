@@ -1,12 +1,5 @@
 package ua.com.iweb.controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-import javax.servlet.http.HttpServletResponse;
-
 import org.hibernate.Session;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -17,6 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 import ua.com.iweb.config.DaoBeanConfig;
 import ua.com.iweb.dao.UserDAO;
 import ua.com.iweb.enteties.UserEntity;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Vadym on 27.02.2015.

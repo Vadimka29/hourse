@@ -6,10 +6,10 @@ $('document').ready(function(){
 		data = JSON.stringify(data);
 		$.ajax({
   			type: 'POST',
-			url: 'login_post',
+			url: '',
 			data: data,
 			success: function(data){
-			   window.location.href="/";
+			   // window.location.href="index.html"
 			}
 		});
 	});
@@ -23,14 +23,13 @@ $('document').ready(function(){
 		data["email"] = $('#registerActionEmail').val();
 		data["login"] = $('#registerActionLogin').val();
 		data["password"] = $('#registerActionPassword').val();
-        data["password2"] = $('#registerActionPassword2').val();
 		data = JSON.stringify(data);
 		$.ajax({
   			type: 'POST',
 			url: '',
 			data: data,
 			success: function(data){
-			   // window.location.href="index.jsp"
+			   // window.location.href="index.html"
 			}
 		});
 	});

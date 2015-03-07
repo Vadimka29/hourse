@@ -2,17 +2,10 @@ package ua.com.iweb.dao;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
-import ua.com.iweb.config.MvcConfiguration;
 import ua.com.iweb.enteties.UserEntity;
 import ua.com.iweb.helpfull.Login;
 import ua.com.iweb.service.HibernateService;
 
-import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -39,10 +32,13 @@ public class UserDAO implements UserDAOInterface {
             query.setParameter("login", formData.getLogin());
             List<UserEntity> res = query.list();
             user = (res.size() == 1) ? res.get(0) : null;
-            if(user == null)
+            if(user == null) {
+                System.out.println("There is no such user!");
                 return false;
+            }
             System.out.println("Proverka: " + formData.getPassword().equals(user.getUserPass()));
             if(formData.getPassword().equals(user.getUserPass()) && res.size() == 1){
+                System.out.println("Pass true!");
                 return true;
             }
         } finally {
@@ -51,5 +47,23 @@ public class UserDAO implements UserDAOInterface {
             }
         }
         return false;
+    }
+
+    @Override
+    public boolean registerUser(UserEntity user) throws SQLException {
+        if(user == null)
+            return false;
+        Session session = null;
+        try {
+            session = HibernateService.getSession();
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+            return true;
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
     }
 }

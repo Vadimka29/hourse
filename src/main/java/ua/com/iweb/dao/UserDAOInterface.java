@@ -12,5 +12,6 @@ import java.util.List;
 public interface UserDAOInterface {
     public List<UserEntity> getAllUsers() throws SQLException;
     public boolean authorizationCheck(Login login) throws SQLException;
+    public boolean registerUser(UserEntity user) throws  SQLException;
 
 }

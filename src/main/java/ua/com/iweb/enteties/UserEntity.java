@@ -128,4 +128,8 @@ public class UserEntity {
         result = 31 * result + (userPass != null ? userPass.hashCode() : 0);
         return result;
     }
+    @Override
+    public String toString(){
+        return "Login: " + getUserLogin() + ", pass: " + getUserPass();
+    }
 }

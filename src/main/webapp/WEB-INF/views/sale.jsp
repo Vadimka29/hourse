@@ -56,7 +56,7 @@
                             <h3 class="blockTitle">Продажа <span  class="addNewSale" onclick="location.href='addOrder.jsp'"><div class="triangle"></div>[ Добавить объявление ]</span> </h3>
 
                             <div class="logoSmall">
-                                <img src="/resources/img/cartSmall3.png" alt="">
+                                <img src="/WEB-INF/ckfinder/cartSmall3.png" alt="">
                             </div>
                            <div class="row">
                            	

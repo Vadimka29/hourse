@@ -36,7 +36,7 @@
                         <div class="menuWrapper">
                         <ul>
                             <li class="transition"><a href="/" class="transition">федерация</a>
-                                <ul class="transition">
+                               n. <ul class="transition">
                                     <li><a href="#">О федерации</a></li>
                                     <li><a href="#">Спонсоры</a></li>
                                     <li><a href="#">Контакты</a></li>
@@ -55,10 +55,10 @@
                             <div class="mainBlock">
                             <h3 class="blockTitle">Добавление в продажу</h3>
                             <div class="logoSmall">
-                                <img src="/resources/img/cartSmall3.png" alt="">
+                                <img src="/WEB-INF/ckfinder/cartSmall3.png" alt="">
                             </div>
                             <form>
-                                <label for="title">fsfsdf</label>
+                                <label for="title">Файл:</label>
                                 <input type="text" id="title" name="title" placeholder="Название"> 
                                 <input type="file" id="title"> 
                                 <textarea name="editor1" id="editor1" rows="10" cols="80">

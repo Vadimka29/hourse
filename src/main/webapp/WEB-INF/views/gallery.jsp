@@ -59,7 +59,7 @@
                             <div class="mainBlock">
                             <h3 class="blockTitle">галерея</h3>
                             <div class="logoSmall">
-                                <img src="/resources/img/galeryNew.png" alt="">
+                                <img src="/WEB-INF/ckfinder/galeryNew.png" alt="">
                             </div>
 
 
