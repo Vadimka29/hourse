@@ -1,4 +1,11 @@
+<%@ page import="ua.com.iweb.enteties.HourseOrderEntity" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.springframework.context.ApplicationContext" %>
+<%@ page import="org.springframework.context.annotation.AnnotationConfigApplicationContext" %>
+<%@ page import="ua.com.iweb.config.DaoBeanConfig" %>
+<%@ page import="ua.com.iweb.dao.OrderDAO" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -59,7 +66,7 @@
                                 <img src="/WEB-INF/ckfinder/cartSmall3.png" alt="">
                             </div>
                            <div class="row">
-                           	
+
                           	<div class="cols col-12 item">
                           		<div class="cols col-5 photo">
                           			<img src="http://www.chamonix.net/sites/default/files/nodeimages/horse.jpg,qitok=4lxE0iDs.pagespeed.ce.BQzlgz3Dil.jpg" alt="">
@@ -72,45 +79,28 @@
                           			<div class="phone"><i class="fa fa-phone"></i>088-888-88-88</div>
                           		</div>
                             </div>
+                               <%
+                                   ApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
+                                   OrderDAO orderDAO = (OrderDAO) context.getBean("orderDAO");
+                                   List<HourseOrderEntity> orders = (List<HourseOrderEntity>) orderDAO.getOrders(1);
+                                   for(HourseOrderEntity entity: orders){
 
-                            <div class="cols col-12 item">
-                          		<div class="cols col-5 photo">
-                          			<img src="http://www.deshow.net/d/file/animal/2009-02/horse-418-2.jpg" alt="">
-                          		</div>
-                          		<div class="cols col-7 description">
-                          			<h3 class="title">Название данного товара</h3>
-                          			<p>
-                          				Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого.
-                          			</p>
-                          			<div class="phone"><i class="fa fa-phone"></i>088-888-88-88</div>
-                          		</div>
-                            </div>
-
-                            <div class="cols col-12 item">
-                          		<div class="cols col-5 photo">
-                          			<img src="http://www.chamonix.net/sites/default/files/nodeimages/horse.jpg,qitok=4lxE0iDs.pagespeed.ce.BQzlgz3Dil.jpg" alt="">
-                          		</div>
-                          		<div class="cols col-7 description">
-                          			<h3 class="title">Название данного товара</h3>
-                          			<p>
-                          				Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого.
-                          			</p>
-                          			<div class="phone"><i class="fa fa-phone"></i>088-888-88-88</div>
-                          		</div>
-                            </div>
-
-                            <div class="cols col-12 item">
-                          		<div class="cols col-5 photo">
-                          			<img src="http://www.hdwallpapers.in/walls/rising_horse-normal.jpg" alt="">
-                          		</div>
-                          		<div class="cols col-7 description">
-                          			<h3 class="title">Название данного товара</h3>
-                          			<p>
-                          				Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого.
-                          			</p>
-                          			<div class="phone"><i class="fa fa-phone"></i>088-888-88-88</div>
-                          		</div>
-                            </div>
+                               %>
+                               <div class="cols col-12 item">
+                                   <div class="cols col-5 photo">
+                                       <img src=<%=entity.getOrderPhoto()%>>
+                                   </div>
+                                   <div class="cols col-7 description">
+                                       <h3 class="title"><%=entity.getOrderTitle()%></h3>
+                                       <p>
+                                           <%=entity.getOrderDescription()%>
+                                       </p>
+                                       <div class="phone"><i class="fa fa-phone"></i><%=entity.getOrderPhone()%></div>
+                                   </div>
+                               </div>
+                               <%
+                                   }
+                               %>
 
                     		</div>
                 </div>          

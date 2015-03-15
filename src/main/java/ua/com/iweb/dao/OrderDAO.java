@@ -1,5 +1,6 @@
 package ua.com.iweb.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import ua.com.iweb.enteties.HourseOrderEntity;
 import ua.com.iweb.service.HibernateService;
@@ -31,6 +32,19 @@ public class OrderDAO implements OrderDAOInterface{
 
     @Override
     public List<HourseOrderEntity> getOrders(int countIndex) throws SQLException {
-        return null;
+        Session session = null;
+        try {
+            session = HibernateService.getSession();
+            int startFrom = 10*countIndex - 10;
+            String hql = "FROM HourseOrderEntity";
+            Query q = session.createQuery(hql);
+            q.setFirstResult(startFrom);
+            q.setMaxResults(10);
+            return q.list();
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
     }
 }
