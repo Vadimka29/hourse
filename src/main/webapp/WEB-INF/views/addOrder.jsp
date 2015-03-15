@@ -1,8 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://ckeditor.com" prefix="ckeditor" %>
-<%@ taglib prefix="ckfinder" uri="http://cksource.com/ckfinder" %>
-
+<%@ taglib uri="http://cksource.com/ckfinder" prefix="ckfinder" %>
 
 <!DOCTYPE html>
 <html>
@@ -17,19 +16,6 @@
         <script src="/resources/js/ckeditor/ckeditor.js"></script>
     </head>
     <body>
-
-    <form action="getContent" method="get">
-        <textarea cols="80" id="editor1" name="editor1" rows="10"></textarea>
-        <input type="submit" value="Submit" />
-    </form>
-    <ckfinder:setupCKEditor basePath="../ckfinder/" editor="editor1" />
-    <ckeditor:replace replace="editor1" basePath="/" />
-
-
-
-
-
-
         <div class="container">
             <div class="page-wrapper">
                 <div class="row headerWrapper">
@@ -81,7 +67,7 @@
                                     <div class="cols col-12">
                                         <h3 class="title">Загрузите аватар</h3>
                                         <div class="cols col-12">
-                       Absolute paths not recommended in JSPs more... (Ctrl+F1                     <div class="file_upload">
+                                    <div class="file_upload">
                                                 <button type="button">Выбрать фотографию</button>
                                                 <input type="file" id="saleItemPhoto" name="saleItemPhoto">
                                             </div>
@@ -89,17 +75,17 @@
                                     </div>
                                     <div class="cols col-12">
                                         <h3 class="title">Заполните заголовок</h3>
-                                        <textarea  id="saleItemTitle" name="saleItemTitle">Заголовок</textarea>
+                                        <textarea id="saleItemTitle" name="saleItemTitle">Заголовок</textarea>
                                     </div>
 
 
                                     <div class="cols col-12">
                                         <h3 class="title">Заполните описание</h3>
-                                        <!--  <textarea name="saleItemPhotoDescription" id="description">Описание
-                                         </textarea> -->
-                                     <textarea name="editor1" id="editor1" rows="10" cols="80" class="description">
-                                    Описание
-                                </textarea>
+
+                                        <textarea id="editor1" name="editor1" rows="10" cols="80"></textarea>
+                                        <ckfinder:setupCKEditor basePath="/resources/ckfinder"></ckfinder:setupCKEditor>
+                                        <ckeditor:replace replace="editor1" basePath="/resources/js/ckeditor"/>
+
                                         <div id="addOrder" class="submit">Добавить объявление</div>
                                     </div>
                                 </form>
@@ -123,16 +109,16 @@
             </div>
         </div>
     </body>
-    <script>
-        $(document).ready(function(){
-            CKEDITOR.replace( 'editor1', {
-                extraPlugins: 'image2,video',
-                extraAllowedContent: 'video[*]{*};source[*]{*}',
-                skin : 'icy_orange'
-//                filebrowserBrowseUrl: 'http://your-website/includes/ckeditor/plugins/w3bdeveloper_uimages/index.php',
-//                filebrowserWindowWidth: '860',
-//                filebrowserWindowHeight: '660'
-            } )
-        });
-    </script>
+    <%--<script>--%>
+        <%--$(document).ready(function(){--%>
+            <%--CKEDITOR.replace( 'editor1', {--%>
+                <%--extraPlugins: 'image2,video',--%>
+                <%--extraAllowedContent: 'video[*]{*};source[*]{*}',--%>
+                <%--skin : 'icy_orange',--%>
+                <%--filebrowserBrowseUrl: '/resources/ckfinder/',--%>
+                <%--filebrowserWindowWidth: '860',--%>
+                <%--filebrowserWindowHeight: '660'--%>
+            <%--} )--%>
+        <%--});--%>
+    <%--</script>--%>
 </html>

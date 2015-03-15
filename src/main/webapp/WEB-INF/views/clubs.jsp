@@ -54,7 +54,7 @@
 							<div class="mainBlock">
 							<h3 class="blockTitle">конные клубы</h3>
 							<div class="logoSmall">
-								<img src="/resources/img/horseSmall2.png" alt="">
+								<img src="/ckfinder/images/horseSmall2.png" alt="">
 							</div>
 								<div class="icons">
 									<div class="row">

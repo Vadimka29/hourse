@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,6 +10,15 @@
 		<script src="/resources/js/jquery.js"></script>
 		<script src="/resources/js/mainPage.js"></script>
 		<script src="/resources/js/popup.js"></script>
+
+
+		<script src="/resources/js/Flickerplate/js/min/jquery-v1.10.2.min.js"></script>
+	    <script src="/resources/js/Flickerplate/js/min/modernizr-custom-v2.7.1.min.js"></script>
+	    <script src="/resources/js/Flickerplate/js/min/hammer-v2.0.3.min.js"></script>
+		
+	    <!-- // Flickerplate -->
+	    <script src="/resources/js/Flickerplate/js/flickerplate.js"></script>
+	    <link href="/resources/css/flickerplate.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="container indexPage">
@@ -49,17 +59,25 @@
                         </ul>
                         </div>
 						<div class="slider">
-							<div class="arrow left">
+							<div class="arrow left arrow-navigation left">
 								<div class="transition"><i class="fa fa-angle-left left transition"></i></div>
 							</div>
-							<div class="arrow right">
+							<div class="arrow right arrow-navigation right">
 								<div class="transition"><i class="fa fa-angle-right transition"></i></div>
-							</div>
+							</div>	
 
-							<div class="imageWrapper">
-								<img src="/resources/img/slider/slide1.jpg" alt="" class="active">
-								<img src="/resources/img/slider/slide2.jpg" alt="" >
-								<img src="/resources/img/slider/slide3.jpg" alt="" >
+							<div class="flicker-example ">	
+							    <ul>
+							        <li data-background="/resources/img/slider/slide1.jpg" style="background:url('/resources/img/slider/slide1.jpg'); background-size:cover;">
+							          
+							        </li>
+							        <li data-background="/resources/img/slider/slide2.jpg" style="background:url('/resources/img/slider/slide1.jpg'); background-size:cover;">
+							        </li> 
+							          <li data-background="/resources/img/slider/slide5.jpg" style="background:url('/resources/img/slider/slide1.jpg'); background-size:cover;">
+							        </li>
+							        <li data-background="/resources/img/slider/slide6.jpg" style="background:url('/resources/img/slider/slide1.jpg'); background-size:cover;">
+							        </li> 
+							    </ul>
 							</div>
 						</div>
 					</div>
@@ -70,9 +88,27 @@
 					<div class="cols col-7">
 						2014-2015, Федерация конного спорта Полтавы. All Rights Reserved
 					</div>
-					<div class="cols col-5"><a class="registrationLink" href="/authorization">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
+					<div class="cols col-5"><a class="registrationLink" href="/register">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
 				</div>
 			</div>
 		</div>
 	</body>
+<script>
+$(document).ready(function()
+{
+    $('.flicker-example').flickerplate(
+    {
+        arrows: true,
+        arrows_constraint: false,
+        auto_flick: true,
+        auto_flick_delay: 10,
+        block_text: true,
+        dot_alignment: 'center',
+        dot_navigation: false,
+        flick_animation: 'jquery-fade',
+        flick_position: 1,
+        theme: 'light'
+    });
+});
+</script>
 </html>

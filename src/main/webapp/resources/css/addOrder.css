@@ -1,4 +1,4 @@
-textarea#title {
+textarea {
     width: 100%; /* Ширина поля в процентах */
     min-height: 10px; /* Высота поля в пикселах */
     resize: vertical; /* Запрещаем изменять размер */
@@ -8,17 +8,21 @@ textarea#title {
     color: #767676;
    } 
 
-textarea#description {
+textarea.description {
+    display: none;
     width: 100%; /* Ширина поля в процентах */
     min-height: 100px; /* Высота поля в пикселах */
      resize: vertical; /* Запрещаем изменять размер */
     border:1px solid #ddd;
     padding: 1em 0 0 1em;
     text-align: left;
-    margin-left: 2em;
+    /*margin-left: 10em;*/
     color: #767676;
    } 
-
+#cke_editor1{
+    margin-left: 1.9em;
+    width: 99%;
+}
 .file_upload{
     position: relative;
     font-size: 1em;        /* example */

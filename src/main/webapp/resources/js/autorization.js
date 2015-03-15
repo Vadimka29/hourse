@@ -9,7 +9,7 @@ $('document').ready(function(){
 			url: '',
 			data: data,
 			success: function(data){
-			   // window.location.href="index.html"
+			   // window.location.href="index.jsp"
 			}
 		});
 	});
@@ -29,7 +29,7 @@ $('document').ready(function(){
 			url: '',
 			data: data,
 			success: function(data){
-			   // window.location.href="index.html"
+			   // window.location.href="index.jsp"
 			}
 		});
 	});

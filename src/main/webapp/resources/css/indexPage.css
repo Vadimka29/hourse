@@ -10,16 +10,16 @@
     margin-bottom: 2em;
 }
 .slider .imageWrapper{
- max-height: 20em;
+ /*max-height: 20em;*/
     overflow: hidden;
 }
 .slider img{
     max-width: 100%;
-    display: none;
+    /*display: none;*/
 }
-.slider img.active{
+/*.slider img.active{
     display: block;
-}
+}*/
 .slider .arrow{
     position: absolute;
     background: #fff;
@@ -27,7 +27,7 @@
     -ms-transform: rotate(45deg); /* IE 9 */
     -moz-transform: rotate(45deg);
     -mos-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);  Chrome, Safari, Opera 
     transform: rotate(45deg);
     padding:0.5% 0.5%;
     cursor: pointer;
