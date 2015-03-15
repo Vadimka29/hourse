@@ -3,7 +3,7 @@ package ua.com.iweb.enteties;
 import javax.persistence.*;
 
 /**
- * Created by root on 05.03.15.
+ * Created by root on 16.03.15.
  */
 @Entity
 @Table(name = "user", schema = "", catalog = "hourse")
@@ -127,9 +127,5 @@ public class UserEntity {
         result = 31 * result + (userCity != null ? userCity.hashCode() : 0);
         result = 31 * result + (userPass != null ? userPass.hashCode() : 0);
         return result;
-    }
-    @Override
-    public String toString(){
-        return "Login: " + getUserLogin() + ", pass: " + getUserPass();
     }
 }

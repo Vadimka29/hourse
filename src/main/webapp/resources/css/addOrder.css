@@ -6,19 +6,19 @@ textarea {
     padding: 1em 0 0 1em;
     margin-left: 2em;
     color: #767676;
-   } 
+}
 
 textarea.description {
     display: none;
     width: 100%; /* Ширина поля в процентах */
     min-height: 100px; /* Высота поля в пикселах */
-     resize: vertical; /* Запрещаем изменять размер */
+    resize: vertical; /* Запрещаем изменять размер */
     border:1px solid #ddd;
     padding: 1em 0 0 1em;
     text-align: left;
     /*margin-left: 10em;*/
     color: #767676;
-   } 
+}
 #cke_editor1{
     margin-left: 1.9em;
     width: 99%;
@@ -46,8 +46,8 @@ textarea.description {
     cursor: pointer;
 }
 .file_upload:hover button{
-    background: #192A31 !important; 
-    color: #fff;    
+    background: #192A31 !important;
+    color: #fff;
 }
 .file_upload input[type=file]{
     position: absolute;
@@ -89,4 +89,16 @@ textarea.description {
 .addOrder .submit:hover{
     background: #192A31;
     color: #fff;
+}
+.orderType{
+    padding: 1em 0 0 0;
+}
+.orderType input{
+    margin-right: 1em;
+}
+.orderType span{
+    position: relative;
+    top: -0.25em;
+    float: left;
+    font-weight: bold;
 }

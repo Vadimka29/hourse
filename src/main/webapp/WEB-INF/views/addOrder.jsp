@@ -14,6 +14,7 @@
         <script src="/resources/js/jquery.js"></script>
         <script src="/resources/js/mainPage.js"></script>
         <script src="/resources/js/ckeditor/ckeditor.js"></script>
+        <script src="/resources/js/addOrder.js"></script>
     </head>
     <body>
         <div class="container">
@@ -54,7 +55,7 @@
                         </ul>
                         </div>
                     </div>
-                </div>  
+                </div>
                 <div class="row mainBlockWrapper">
                     <div class="cols col-8 centered">
                             <div class="mainBlock addOrder">
@@ -63,19 +64,17 @@
                                 <img src="/WEB-INF/ckfinder/cartSmall3.png" alt="">
                             </div>
                             <div class="row">
-                                <form method="post" action="" id="addSaleForm">
-                                    <div class="cols col-12">
-                                        <h3 class="title">Загрузите аватар</h3>
-                                        <div class="cols col-12">
-                                    <div class="file_upload">
-                                                <button type="button">Выбрать фотографию</button>
-                                                <input type="file" id="saleItemPhoto" name="saleItemPhoto">
-                                            </div>
-                                        </div>
-                                    </div>
+                                <form method="post" id="addSaleForm">
                                     <div class="cols col-12">
                                         <h3 class="title">Заполните заголовок</h3>
                                         <textarea id="saleItemTitle" name="saleItemTitle">Заголовок</textarea>
+                                    </div>
+                                    <div class="cols col-12 orderType">
+                                        <h3 class="title">Укажите категорию</h3>
+                                        <input type="radio" name="orderType" value="horses"><span>Лошади</span><Br>
+                                        <input type="radio" name="orderType" value="transport"><span>Транспорт</span><Br>
+                                        <input type="radio" name="orderType" value="ammunition"><span>Амуниция</span><Br>
+                                        <input type="radio" name="orderType" value="etc"><span>Разное</span><Br>
                                     </div>
 
 
@@ -89,7 +88,6 @@
                                         <div id="addOrder" class="submit">Добавить объявление</div>
                                     </div>
                                 </form>
-                            </div>
                             </div>
 
                             </div>

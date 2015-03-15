@@ -88,7 +88,7 @@
 					<div class="cols col-7">
 						2014-2015, Федерация конного спорта Полтавы. All Rights Reserved
 					</div>
-					<div class="cols col-5"><a class="registrationLink" href="/register">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
+					<div class="cols col-5"><a class="registrationLink" href="/authorization">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
 				</div>
 			</div>
 		</div>

@@ -53,7 +53,7 @@
                 <div class="row mainBlockWrapper">
                     <div class="cols col-8 centered">
                             <div class="mainBlock sale">
-                            <h3 class="blockTitle">Продажа <span  class="addNewSale" onclick="location.href='addOrder.jsp'"><div class="triangle"></div>[ Добавить объявление ]</span> </h3>
+                            <h3 class="blockTitle">Продажа <span  class="addNewSale" onclick="location.href='order'"><div class="triangle"></div>[ Добавить объявление ]</span> </h3>
 
                             <div class="logoSmall">
                                 <img src="/WEB-INF/ckfinder/cartSmall3.png" alt="">

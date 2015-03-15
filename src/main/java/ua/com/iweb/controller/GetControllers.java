@@ -60,7 +60,7 @@ public class GetControllers {
     @ResponseBody
     public String getUser(HttpServletResponse response) throws IOException{
         Session session = null;
-        List<UserEntity> users =  new ArrayList<UserEntity>();
+        List<UserEntity> users =  new ArrayList <UserEntity>();
         try {
             session = null;
             session.beginTransaction();

@@ -53,6 +53,7 @@ public class AuthorizationController {
     @RequestMapping(method = RequestMethod.POST, value = "/register_post")
     public void register(HttpServletResponse response, HttpSession session, @RequestBody String json) throws IOException {
         String data = URLDecoder.decode(json.substring(0, json.length()-1), "utf-8");
+        System.out.println("data: " + data);
         ObjectMapper mapper = new ObjectMapper();
         UserEntity user = mapper.readValue(data.getBytes(), UserEntity.class);
         System.out.println(user);
