@@ -27,14 +27,14 @@ $('document').ready(function(){
         //alert( str.match(re) )
 
         console.log(data["orderDescription"].match(thumbNailRegex));
+        //123
         //if ( thumbNail.length > 1 ){
         //    var thumb = thumbNail[1]
         //}
         //else{
         //    //дефолтная пикча
         //    var thumb = ""
-        //}
-        data = JSON.stringify(data);
+        //} data = JSON.stringify(data);
         $.ajax({
             type: 'POST',
             url: '/order/new',
