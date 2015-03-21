@@ -4,39 +4,6 @@
 .photoGallery{
 	padding: 3em 1em 1em;
 }
-.pageNav.top{
-	position: absolute;
-    right: 0;
-    top: -0.1em;
-}
-.pageNav.bottom{
-	width: 100%;
-	position: relative;
-	height: 3em;
-    /*padding: 1em;*/
-}
-.pageNav.bottom ul{
-	position: absolute;
-	right: 0;
-	bottom: 0.5em;
-}
-.pageNav ul li{
-	cursor: pointer;
-	display: inline-block;
-	border:1px solid #192A31;
-	width: 1.5em;
-	height: 1.5em;
-	font-size: 0.9em;
-	font-weight: bold;
-}
-.pageNav ul li:hover{
-	background:  #192A31;
-	color: #fff;
-}
-.pageNav ul li.active{
-	background:  #192A31;
-	color: #fff;
-}
 .horizontalLine{
 	position: relative;
 	top: 6em;

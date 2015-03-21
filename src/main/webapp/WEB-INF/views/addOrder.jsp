@@ -12,80 +12,47 @@
         <link rel="stylesheet" href="/resources/css/fontawesome.css">
         <link rel="stylesheet" href="/resources/css/addOrder.css">
         <script src="/resources/js/jquery.js"></script>
-        <script src="/resources/js/mainPage.js"></script>
+        <script src="/resources/js/locale.js"></script>
+        <script src="/resources/js/mainPage.js"></script><script src="/resources/js/locale.js"></script>
         <script src="/resources/js/ckeditor/ckeditor.js"></script>
         <script src="/resources/js/addOrder.js"></script>
+        <script type="text/javascript" src="/resources/ckfinder/ckfinder.js"></script>
+
     </head>
     <body>
         <div class="container">
             <div class="page-wrapper">
-                <div class="row headerWrapper">
-                    <div class="header">
-                        <div class="cols col-8 centered">
-                            <div class="cols col-6">Добро пожаловать в Федерацию конного спорта Полтавы</div>
-                            <div class="cols col-6">
-                                <div>
-                                    <i class="fa fa-map-marker"></i>г.Полтава, Толстого 12
-                                </div>
-                                <div>
-                                    <i class="fa fa-phone"></i> 8 800 888 88 88
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cols col-8 centered">
-                        <div class="logoWrapper">
-                                <img src="/resources/img/logoFull.png" alt="">
-                                <div class="border"></div>
-                        </div>
-                        <div class="menuWrapper">
-                        <ul>
-                            <li class="transition"><a href="/" class="transition">федерация</a>
-                                <ul class="transition">
-                                    <li><a href="#">О федерации</a></li>
-                                    <li><a href="#">Спонсоры</a></li>
-                                    <li><a href="#">Контакты</a></li>
-                                </ul>
-                            </li>
-                            <li class="transition"><a href="/blog" class="transition">блог</a></li>
-                            <li class="transition"><a href="/clubs" class="transition">конные клубы</a></li>
-                            <li class="transition"><a href="/gallery" class="transition">галерея</a></li>
-                            <li class="transition"><a href="/sale" class="transition">продажа</a></li>
-                        </ul>
-                        </div>
-                    </div>
-                </div>
+                <jsp:include page="header.jsp"/>
                 <div class="row mainBlockWrapper">
                     <div class="cols col-8 centered">
                             <div class="mainBlock addOrder">
-                            <h3 class="blockTitle">Добавление в продажу</h3>
+                            <h3 class="blockTitle"><span class="locale" data-name="sale_new_title"></span></h3>
                             <div class="logoSmall">
-                                <img src="/WEB-INF/ckfinder/cartSmall3.png" alt="">
+                                <img src="/resources/img/cartSmall3.png" alt="">
                             </div>
                             <div class="row">
                                 <form method="post" id="addSaleForm">
                                     <div class="cols col-12">
-                                        <h3 class="title">Заполните заголовок</h3>
-                                        <textarea id="saleItemTitle" name="saleItemTitle">Заголовок</textarea>
+                                        <h3 class="title"><span class="locale" data-name="add_order__order_title"></span></h3>
+                                        <textarea id="saleItemTitle" name="saleItemTitle"></textarea>
                                     </div>
                                     <div class="cols col-12 orderType">
-                                        <h3 class="title">Укажите категорию</h3>
-                                        <input type="radio" name="orderType" value="horses"><span>Лошади</span><Br>
-                                        <input type="radio" name="orderType" value="transport"><span>Транспорт</span><Br>
-                                        <input type="radio" name="orderType" value="ammunition"><span>Амуниция</span><Br>
-                                        <input type="radio" name="orderType" value="etc"><span>Разное</span><Br>
+                                        <h3 class="title"><span class="locale" data-name="add_order__order_category"></span><br/></h3>
+                                        <input type="radio" name="orderType" value="horses"><span class="locale" data-name="add_order__order_category__horses"></span><Br>
+                                        <input type="radio" name="orderType" value="transport"><span class="locale" data-name="add_order__order_category__transport"></span><Br>
+                                        <input type="radio" name="orderType" value="ammunition"><span class="locale" data-name="add_order__order_category__ammunition"></span><Br>
+                                        <input type="radio" name="orderType" value="etc"><span class="locale" data-name="add_order__order_category__various"></span><Br>
                                     </div>
 
 
                                     <div class="cols col-12">
-                                        <h3 class="title">Заполните описание</h3>
+                                        <h3 class="title"><span class="locale" data-name="add_order__order_description"></span></h3>
 
                                         <textarea id="editor1" name="editor1" rows="10" cols="80"></textarea>
-                                        <ckfinder:setupCKEditor basePath="/resources/ckfinder"></ckfinder:setupCKEditor>
-                                        <ckeditor:replace replace="editor1" basePath="/resources/js/ckeditor"/>
+                                        <ckfinder:setupCKEditor basePath="/resources/ckfinder/" editor="editor1" />
+                                        <ckeditor:replace replace="editor1" basePath="/resources/js/ckeditor/" />
 
-                                        <div id="addOrder" class="submit">Добавить объявление</div>
+                                        <div id="addOrder" class="submit"><span class="locale" data-name="add_button"></span></div>
                                     </div>
                                 </form>
                             </div>
@@ -95,16 +62,9 @@
                 </div>          
             </div>
 
-            
 
-           <div class="footer">
-                <div class="cols col-8 centered">
-                    <div class="cols col-7">
-                        2014-2015, Федерация конного спорта Полтавы. All Rights Reserved
-                    </div>
-                    <div class="cols col-5"><a class="registrationLink" href="/authorization">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
-                </div>
-            </div>
+
+            <jsp:include page="footer.jsp"/>
         </div>
     </body>
     <%--<script>--%>
@@ -119,4 +79,5 @@
             <%--} )--%>
         <%--});--%>
     <%--</script>--%>
+
 </html>

@@ -8,115 +8,87 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="/resources/css/horse_clubs.css">
-        <link rel="stylesheet" href="/resources/css/mainsheet.css">
-        <link rel="stylesheet" href="/resources/css/fontawesome.css">
-        <link rel="stylesheet" href="/resources/css/addOrder.css">
-        <script src="/resources/js/jquery.js"></script>
-        <script src="/resources/js/mainPage.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="page-wrapper">
-                <div class="row headerWrapper">
-                    <div class="header">
-                        <div class="cols col-8 centered">
-                            <div class="cols col-6">Добро пожаловать в Федерацию конного спорта Полтавы</div>
-                            <div class="cols col-6">
-                                <div>
-                                    <i class="fa fa-map-marker"></i>г.Полтава, Толстого 12
-                                </div>
-                                <div>
-                                    <i class="fa fa-phone"></i> 8 800 888 88 88
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cols col-8 centered">
-                        <div class="logoWrapper">
-                                <img src="/resources/img/logoFull.png" alt="">
-                                <div class="border"></div>
-                        </div>
-                       <div class="menuWrapper">
-                        <ul>
-                            <li class="transition"><a href="/" class="transition">федерация</a>
-                                <ul class="transition">
-                                    <li><a href="#">О федерации</a></li>
-                                    <li><a href="#">Спонсоры</a></li>
-                                    <li><a href="#">Контакты</a></li>
-                                </ul>
-                            </li>
-                            <li class="transition"><a href="/blog" class="transition">блог</a></li>
-                            <li class="transition"><a href="/clubs" class="transition">конные клубы</a></li>
-                            <li class="transition"><a href="/gallery" class="transition">галерея</a></li>
-                            <li class="transition"><a href="/sale" class="transition">продажа</a></li>
-                        </ul>
-                        </div>
-                    </div>
-                </div>  
-                <div class="row mainBlockWrapper">
-                    <div class="cols col-8 centered">
-                            <div class="mainBlock sale">
-                            <h3 class="blockTitle">Продажа <span  class="addNewSale" onclick="location.href='order'"><div class="triangle"></div>[ Добавить объявление ]</span> </h3>
-
-                            <div class="logoSmall">
-                                <img src="/WEB-INF/ckfinder/cartSmall3.png" alt="">
-                            </div>
-                           <div class="row">
-
-                          	<div class="cols col-12 item">
-                          		<div class="cols col-5 photo">
-                          			<img src="http://www.chamonix.net/sites/default/files/nodeimages/horse.jpg,qitok=4lxE0iDs.pagespeed.ce.BQzlgz3Dil.jpg" alt="">
-                          		</div>
-                          		<div class="cols col-7 description">
-                          			<h3 class="title">Название данного товара</h3>
-                          			<p>
-                          				Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого.
-                          			</p>
-                          			<div class="phone"><i class="fa fa-phone"></i>088-888-88-88</div>
-                          		</div>
-                            </div>
-                               <%
-                                   ApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
-                                   OrderDAO orderDAO = (OrderDAO) context.getBean("orderDAO");
-                                   List<HourseOrderEntity> orders = (List<HourseOrderEntity>) orderDAO.getOrders(1);
-                                   for(HourseOrderEntity entity: orders){
-
-                               %>
-                               <div class="cols col-12 item">
-                                   <div class="cols col-5 photo">
-                                       <img src=<%=entity.getOrderPhoto()%>>
-                                   </div>
-                                   <div class="cols col-7 description">
-                                       <h3 class="title"><%=entity.getOrderTitle()%></h3>
-                                       <p>
-                                           <%=entity.getOrderDescription()%>
-                                       </p>
-                                       <div class="phone"><i class="fa fa-phone"></i><%=entity.getOrderPhone()%></div>
-                                   </div>
-                               </div>
-                               <%
-                                   }
-                               %>
-
-                    		</div>
-                </div>          
-            </div>
-</div>
-            
-
-      <div class="footer">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/resources/css/horse_clubs.css">
+    <link rel="stylesheet" href="/resources/css/mainsheet.css">
+    <link rel="stylesheet" href="/resources/css/fontawesome.css">
+    <link rel="stylesheet" href="/resources/css/addOrder.css">
+    <script src="/resources/js/jquery.js"></script>
+    <script src="/resources/js/locale.js"></script>
+    <script src="/resources/js/mainPage.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="page-wrapper">
+        <jsp:include page="header.jsp"/>
+        <div class="row mainBlockWrapper">
             <div class="cols col-8 centered">
-              <div class="cols col-7">
-                2014-2015, Федерация конного спорта Полтавы. All Rights Reserved
-              </div>
-              <div class="cols col-5"><a class="registrationLink" href="/authorization">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
+                <div class="mainBlock sale">
+                    <h3 class="blockTitle"><span class="locale" data-name="sale_title"></span> <span  class="addNewSale" onclick="location.href='order'"><div class="triangle"></div><span class="locale" data-name="sale_title__add_order"></span></span> </h3>
+
+                    <div class="logoSmall">
+                        <img src="/resources/img/cartSmall3.png" alt="">
+                    </div>
+                    <div class="row">
+
+                        <%
+                            Boolean status = Boolean.parseBoolean((String) request.getAttribute("is"));
+                            System.out.println("Status: " + status.booleanValue());
+                            List<HourseOrderEntity> orders = null;
+                            if(status != null && status.booleanValue() == true) {
+                                orders = (List<HourseOrderEntity>) request.getAttribute("typeList");
+                            } else if(status != null && status.booleanValue() == false){
+                                orders = (List<HourseOrderEntity>) request.getAttribute("lst");
+                            } else {
+                                orders = null;
+                            }
+                            if(orders != null)
+                                for(HourseOrderEntity entity: orders){
+                        %>
+                        <div class="cols col-12 item">
+                            <div class="cols col-5 photo">
+                                <img src=<%=entity.getOrderPhoto()%>>
+                            </div>
+                            <div class="cols col-7 description">
+                                <h3 class="title"><%=entity.getOrderTitle()%> <span><a href="/sale/post/<%=entity.getOrderId()%>">Подробнее</a></span></h3>
+                                <p>
+                                    <%=entity.getOrderDescription()%>
+                                </p>
+                                <div class="phone"><i class="fa fa-phone"></i><%=entity.getOrderPhone()%></div>
+                            </div>
+                        </div>
+                        <%
+                            }
+                        %>
+                    </div>
+                    <div class="pageNav bottom">
+                        <ul>
+                            <%
+                                String orderType = (String) request.getAttribute("orderType");
+                                int count = (Integer) request.getAttribute("pageCount");
+                                int pageCount = (int) Math.ceil(count/10.0);
+                                for(int i = 1; i <= pageCount; i++){
+                                    if(orderType != null && !orderType.isEmpty()){
+                            %>
+                            <li><a href="/sale/<%=orderType%>/<%=i%>"><%=i%></a></li>
+                            <%
+                            } else {
+                            %>
+                            <li><a href="/sale/<%=i%>"><%=i%></a></li>
+                            <%
+                                    }
+                                }
+                            %>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
-      </div>
         </div>
-            </div>
-    </body>
+    </div>
+    <jsp:include page="footer.jsp"/>
+
+</div>
+</body>
 </html>

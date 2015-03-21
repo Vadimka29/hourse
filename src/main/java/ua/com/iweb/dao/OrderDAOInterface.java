@@ -11,4 +11,8 @@ import java.util.List;
 public interface OrderDAOInterface {
     public boolean addOrder(HourseOrderEntity entity) throws SQLException;
     public List<HourseOrderEntity> getOrders(int countIndex) throws SQLException;
+    public List<HourseOrderEntity> getByType(String type, int countIndex) throws SQLException;
+    public int getOrderCount() throws SQLException;
+    public int getOrderCountByType(String type) throws SQLException;
+    public HourseOrderEntity getOrderById(int id) throws SQLException;
 }

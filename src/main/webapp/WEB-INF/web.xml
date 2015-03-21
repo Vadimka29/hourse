@@ -49,6 +49,38 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>BlogServlet</servlet-name>
+        <servlet-class>ua.com.iweb.controller.BlogServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderTypeServlet</servlet-name>
+        <servlet-class>ua.com.iweb.controller.OrderTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderRecordServlet</servlet-name>
+        <servlet-class>ua.com.iweb.controller.OrderRecordServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BlogRecordServlet</servlet-name>
+        <servlet-class>ua.com.iweb.controller.BlogRecordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderRecordServlet</servlet-name>
+        <url-pattern>/sale/post/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BlogRecordServlet</servlet-name>
+        <url-pattern>/blog/post/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderTypeServlet</servlet-name>
+        <url-pattern>/sale/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BlogServlet</servlet-name>
+        <url-pattern>/blog/*</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConnectorServlet</servlet-name>
         <url-pattern>

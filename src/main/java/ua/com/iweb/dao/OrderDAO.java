@@ -36,13 +36,78 @@ public class OrderDAO implements OrderDAOInterface{
         try {
             session = HibernateService.getSession();
             int startFrom = 10*countIndex - 10;
-            String hql = "FROM HourseOrderEntity";
+            String hql = "FROM HourseOrderEntity order by orderId desc";
             Query q = session.createQuery(hql);
             q.setFirstResult(startFrom);
             q.setMaxResults(10);
             return q.list();
         } finally {
             if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public List<HourseOrderEntity> getByType(String type, int countIndex) throws SQLException {
+        Session session = null;
+        if(type == null)
+            return null;
+        try {
+            int startFrom = 10*countIndex - 10;
+            session = HibernateService.getSession();
+            Query q = session.createQuery("FROM HourseOrderEntity WHERE orderType = :type order by orderId desc");
+            q.setParameter("type", type);
+            q.setFirstResult(startFrom);
+            q.setMaxResults(10);
+            return q.list();
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public int getOrderCount() throws SQLException {
+        Session session = null;
+        try {
+            session = HibernateService.getSession();
+            Query q = session.createQuery("select count(*) from HourseOrderEntity ");
+            return ((Long) q.uniqueResult()).intValue();
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public int getOrderCountByType(String type) throws SQLException {
+        Session session = null;
+        try {
+            session = HibernateService.getSession();
+            Query q = session.createQuery("select count(*) from HourseOrderEntity where " +
+                    "orderType = :type");
+            q.setParameter("type", type);
+            return ((Long) q.uniqueResult()).intValue();
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public HourseOrderEntity getOrderById(int id) throws SQLException {
+        Session session = null;
+        HourseOrderEntity entity = null;
+        try {
+            session = HibernateService.getSession();
+            entity = (HourseOrderEntity) session.get(HourseOrderEntity.class, id);
+            return entity;
+        } finally {
+            if (session != null && session.isOpen()) {
                 session.close();
             }
         }

@@ -3,7 +3,7 @@ package ua.com.iweb.enteties;
 import javax.persistence.*;
 
 /**
- * Created by root on 16.03.15.
+ * Created by vanya on 19.03.15.
  */
 @Entity
 @Table(name = "user", schema = "", catalog = "hourse")

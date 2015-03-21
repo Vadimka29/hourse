@@ -15,10 +15,11 @@
 		<script src="/resources/js/Flickerplate/js/min/jquery-v1.10.2.min.js"></script>
 	    <script src="/resources/js/Flickerplate/js/min/modernizr-custom-v2.7.1.min.js"></script>
 	    <script src="/resources/js/Flickerplate/js/min/hammer-v2.0.3.min.js"></script>
-		
+        <script src="/resources/js/locale.js"></script>
+
 	    <!-- // Flickerplate -->
 	    <script src="/resources/js/Flickerplate/js/flickerplate.js"></script>
-	    <link href="/resources/css/flickerplate.css" rel="stylesheet" type="text/css">
+	    <link href="/resources/js/Flickerplate/css/flickerplate.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="container indexPage">
@@ -26,14 +27,17 @@
 					<div class="row">
 					<div class="header">
 						<div class="cols col-8 centered">
-							<div class="cols col-6">Добро пожаловать в Федерацию конного спорта Полтавы</div>
+							<div class="cols col-6 locale" data-name='header_hello'></div>
 							<div class="cols col-6">
 								<div>
-									<i class="fa fa-map-marker"></i>г.Полтава, Толстого 12
+									<i class="fa fa-map-marker"></i><span class="locale" data-name='header_location'></span>
 								</div>
 								<div>
 									<i class="fa fa-phone"></i> 8 800 888 88 88
 								</div>
+                                <div class="localeButton">
+                                    <span class="locale" data-name="language_sign"></span>
+                                </div>
 							</div>
 						</div>
 					</div>
@@ -45,17 +49,24 @@
 						</div>
 						<div class="menuWrapper">
                         <ul>
-                            <li class="transition"><a href="/" class="transition">федерация</a>
+                            <li class="transition"><a href="/" class="transition"><span class="locale" data-name="menu_federation"></span></a>
                                 <ul class="transition">
-                                    <li><a href="#">О федерации</a></li>
-                                    <li><a href="#">Спонсоры</a></li>
-                                    <li><a href="#">Контакты</a></li>
+                                    <li><a href="#"><span class="locale" data-name="menu_federation_about"></span></a></li>
+                                    <li><a href="#"><span class="locale" data-name="menu_federation_sponsors"></span></a></li>
+                                    <li><a href="#"><span class="locale" data-name="menu_federation_contacts"></span></a></li>
                                 </ul>
                             </li>
-                            <li class="transition"><a href="/blog" class="transition">блог</a></li>
-                            <li class="transition"><a href="/clubs" class="transition">конные клубы</a></li>
-                            <li class="transition"><a href="/gallery" class="transition">галерея</a></li>
-                            <li class="transition"><a href="/sale" class="transition">продажа</a></li>
+                            <li class="transition"><a href="/blog" class="transition"><span class="locale" data-name="menu_blog"></span></a></li>
+                            <li class="transition"><a href="/clubs" class="transition"><span class="locale" data-name="menu_clubs"></span></a></li>
+                            <li class="transition"><a href="/gallery" class="transition"><span class="locale" data-name="menu_gallery"></span></a></li>
+                            <li class="transition"><a href="/sale" class="transition"><span class="locale" data-name="menu_sale"></span></a>
+                                <ul>
+                                    <li class="transition"><a href="" class="transition"><span class="locale" data-name="menu_sale_horses"></span></a></li>
+                                    <li class="transition"><a href="" class="transition"><span class="locale" data-name="menu_sale_transport"></span></a></li>
+                                    <li class="transition"><a href="" class="transition"><span class="locale" data-name="menu_sale_ammunition"></span></a></li>
+                                    <li class="transition"><a href="" class="transition"><span class="locale" data-name="menu_sale_various"></span></a></li>
+                                </ul>
+                            </li>
                         </ul>
                         </div>
 						<div class="slider">
@@ -83,14 +94,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer">
-				<div class="cols col-8 centered">
-					<div class="cols col-7">
-						2014-2015, Федерация конного спорта Полтавы. All Rights Reserved
-					</div>
-					<div class="cols col-5"><a class="registrationLink" href="/authorization">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
-				</div>
-			</div>
+            <jsp:include page="footer.jsp"/>
 		</div>
 	</body>
 <script>

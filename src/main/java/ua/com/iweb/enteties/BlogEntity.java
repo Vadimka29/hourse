@@ -4,14 +4,16 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by root on 16.03.15.
+ * Created by vanya on 19.03.15.
  */
 @Entity
 @Table(name = "blog", schema = "", catalog = "hourse")
 public class BlogEntity {
     private int messageId;
     private Date messageDate;
-    private String messageBidy;
+    private String messageBody;
+    private String imageUrl;
+    private String messageTittle;
 
     @Id
     @Column(name = "message_id")
@@ -34,13 +36,33 @@ public class BlogEntity {
     }
 
     @Basic
-    @Column(name = "message_bidy")
-    public String getMessageBidy() {
-        return messageBidy;
+    @Column(name = "message_body")
+    public String getMessageBody() {
+        return messageBody;
     }
 
-    public void setMessageBidy(String messageBidy) {
-        this.messageBidy = messageBidy;
+    public void setMessageBody(String messageBody) {
+        this.messageBody = messageBody;
+    }
+
+    @Basic
+    @Column(name = "image_url")
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    @Basic
+    @Column(name = "message_tittle")
+    public String getMessageTittle() {
+        return messageTittle;
+    }
+
+    public void setMessageTittle(String messageTittle) {
+        this.messageTittle = messageTittle;
     }
 
     @Override
@@ -48,11 +70,14 @@ public class BlogEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BlogEntity that = (BlogEntity) o;
+        BlogEntity entity = (BlogEntity) o;
 
-        if (messageId != that.messageId) return false;
-        if (messageBidy != null ? !messageBidy.equals(that.messageBidy) : that.messageBidy != null) return false;
-        if (messageDate != null ? !messageDate.equals(that.messageDate) : that.messageDate != null) return false;
+        if (messageId != entity.messageId) return false;
+        if (imageUrl != null ? !imageUrl.equals(entity.imageUrl) : entity.imageUrl != null) return false;
+        if (messageBody != null ? !messageBody.equals(entity.messageBody) : entity.messageBody != null) return false;
+        if (messageDate != null ? !messageDate.equals(entity.messageDate) : entity.messageDate != null) return false;
+        if (messageTittle != null ? !messageTittle.equals(entity.messageTittle) : entity.messageTittle != null)
+            return false;
 
         return true;
     }
@@ -61,7 +86,9 @@ public class BlogEntity {
     public int hashCode() {
         int result = messageId;
         result = 31 * result + (messageDate != null ? messageDate.hashCode() : 0);
-        result = 31 * result + (messageBidy != null ? messageBidy.hashCode() : 0);
+        result = 31 * result + (messageBody != null ? messageBody.hashCode() : 0);
+        result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
+        result = 31 * result + (messageTittle != null ? messageTittle.hashCode() : 0);
         return result;
     }
 }

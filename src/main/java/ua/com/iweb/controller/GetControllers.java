@@ -3,6 +3,9 @@ package ua.com.iweb.controller;
 import org.hibernate.Session;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,10 +14,13 @@ import ua.com.iweb.config.DaoBeanConfig;
 import ua.com.iweb.dao.UserDAO;
 import ua.com.iweb.enteties.UserEntity;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Vadym on 27.02.2015.
@@ -22,7 +28,7 @@ import java.util.List;
 @Controller
 public class GetControllers {
 
-	@RequestMapping(method = RequestMethod.GET, value="/")
+	@RequestMapping(method = {RequestMethod.GET, RequestMethod.HEAD}, value="/")
 	public ModelAndView getIndex(HttpServletResponse response) throws IOException{
 		return new ModelAndView("index");
 	}
@@ -47,15 +53,10 @@ public class GetControllers {
     public ModelAndView getRegister(HttpServletResponse response) throws IOException{
         return new ModelAndView("register");
     }
-    @RequestMapping(method = RequestMethod.GET, value="/sale")
-    public ModelAndView getSale(HttpServletResponse response) throws IOException{
-        return new ModelAndView("sale");
-    }
-    @RequestMapping(method = RequestMethod.GET, value="/blog")
-    public ModelAndView getBlog(HttpServletResponse response) throws IOException{
-        return new ModelAndView("blog");
-    }
-//    //test
+//    @RequestMapping(method = RequestMethod.GET, value="/sale")
+//    public ModelAndView getSale(HttpServletResponse response) throws IOException{
+//        return new ModelAndView("sale");
+//    }
     @RequestMapping(method = RequestMethod.GET, value="/users")
     @ResponseBody
     public String getUser(HttpServletResponse response) throws IOException{

@@ -2,11 +2,10 @@ package ua.com.iweb.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
+import ua.com.iweb.dao.BlogDAO;
 import ua.com.iweb.dao.OrderDAO;
 import ua.com.iweb.dao.UserDAO;
 import ua.com.iweb.enteties.HourseOrderEntity;
-
-import javax.persistence.criteria.Order;
 
 public class DaoBeanConfig {
 
@@ -22,5 +21,11 @@ public class DaoBeanConfig {
     public OrderDAO getOrderDAO(){
         OrderDAO orderDAO = new OrderDAO();
         return orderDAO;
+    }
+    @Bean(name="blogDAO")
+    @Scope("singleton")
+    public BlogDAO getBlogDAO(){
+        BlogDAO blogDAO = new BlogDAO();
+        return blogDAO;
     }
 }

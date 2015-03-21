@@ -6,11 +6,11 @@
     position: relative;
     background: #fff;
     max-width: 100%;
-    padding: 0.2em;
+    padding: 0.3em;
     margin-bottom: 2em;
 }
 .slider .imageWrapper{
- /*max-height: 20em;*/
+    /*max-height: 20em;*/
     overflow: hidden;
 }
 .slider img{
@@ -27,8 +27,8 @@
     -ms-transform: rotate(45deg); /* IE 9 */
     -moz-transform: rotate(45deg);
     -mos-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);  Chrome, Safari, Opera 
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+transform: rotate(45deg);
     padding:0.5% 0.5%;
     cursor: pointer;
     z-index: 999;
@@ -46,22 +46,22 @@
 }
 .slider .arrow div .fa{
     color: #393939;
-    font-size: 2.5em;
-   -ms-transform: rotate(9deg);
-   -mos-transform: rotate(9deg);
-   -moz-transform: rotate(9deg);    
-    -webkit-transform: rotate(9deg); 
+    font-size: 2.1em;
+    -ms-transform: rotate(9deg);
+    -mos-transform: rotate(9deg);
+    -moz-transform: rotate(9deg);
+    -webkit-transform: rotate(9deg);
     transform: rotate(-45deg);
 }
 .slider .arrow.left .fa{
-    padding-right: 0.15em;
+    padding-right: 0.25em;
 }
 .slider .arrow.right .fa{
-    padding-left: 0.15em;
+    padding-left: 0.08em;
 }
 .slider .arrow.left{
-    left: -1.5em;
+    left: -1.37em;
 }
 .slider .arrow.right{
-    right: -1.5em;
+    right: -1.37em;
 }

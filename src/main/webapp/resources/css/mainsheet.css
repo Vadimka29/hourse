@@ -145,9 +145,8 @@ body{
     height: 100%;
     padding: 0.6em 1.8em 0.5em 0.8em;
 }
-.header .centered .cols:last-child div:first-child{
+.header .centered .cols:last-child div{
     border-left: 1px solid rgba(255,255,255,0.1);
-    border-right: 1px solid rgba(255,255,255,0.1);
 }
 .header .centered .cols:last-child div:last-child{
     border-right: 1px solid rgba(255,255,255,0.1);
@@ -156,7 +155,13 @@ body{
     color: #fff;
     margin: 0 1em 0 0.8em;
 }
-.logoWrapper{
+
+.header .localeButton {
+    padding-left: 1.6em !important;
+    cursor: pointer;
+}
+.header .localeButton:hover {
+    color: #fff;
 }
 .logoWrapper img{
     max-width: 19%;
@@ -179,6 +184,7 @@ body{
     text-transform: uppercase;
     color: #fff;
     font-size: 0.9em;
+    font-weight: bold;
     padding:0.6em 2em 0.5em 2em;
 
 }
@@ -482,4 +488,39 @@ body{
 
 }
 .blog .item .openPost:hover{
+}
+
+
+.pageNav.top{
+    position: absolute;
+    right: 0;
+    top: -0.1em;
+}
+.pageNav.bottom{
+    width: 100%;
+    position: relative;
+    height: 3em;
+    /*padding: 1em;*/
+}
+.pageNav.bottom ul{
+    position: absolute;
+    right: 0;
+    bottom: 0.5em;
+}
+.pageNav ul li{
+    cursor: pointer;
+    display: inline-block;
+    border:1px solid #192A31;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.pageNav ul li:hover{
+    background:  #192A31;
+    color: #fff;
+}
+.pageNav ul li.active{
+    background:  #192A31;
+    color: #fff;
 }

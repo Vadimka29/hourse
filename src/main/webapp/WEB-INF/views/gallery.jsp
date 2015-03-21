@@ -13,53 +13,15 @@
     <body>
         <div class="container">
             <div class="page-wrapper gallery">
-                <div class="row headerWrapper">
-                    <div class="header">
-                        <div class="cols col-8 centered">
-                            <div class="cols col-6">Добро пожаловать в Федерацию конного спорта Полтавы</div>
-                            <div class="cols col-6">
-                                <div>
-                                    <i class="fa fa-map-marker"></i>г.Полтава, Толстого 12
-                                </div>
-                                <div>
-                                    <i class="fa fa-phone"></i> 8 800 888 88 88
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cols col-8 centered">
-                        <div class="logoWrapper">
-                                <img src="/resources/img/logoFull.png" alt="">
-                                <div class="border"></div>
-                        </div>
-                       
-                       <div class="menuWrapper">
-                        <ul>
-                            <li class="transition"><a href="/" class="transition">федерация</a>
-                                <ul class="transition">
-                                    <li><a href="#">О федерации</a></li>
-                                    <li><a href="#">Спонсоры</a></li>
-                                    <li><a href="#">Контакты</a></li>
-                                </ul>
-                            </li>
-                            <li class="transition"><a href="/blog" class="transition">блог</a></li>
-                            <li class="transition"><a href="/clubs" class="transition">конные клубы</a></li>
-                            <li class="transition"><a href="/gallery" class="transition">галерея</a></li>
-                            <li class="transition"><a href="/sale" class="transition">продажа</a></li>
-                        </ul>
-                        </div>
-                    </div>
-                </div>  
-
+              <jsp:include page="header.jsp"/>
                 <div class="row mainBlockWrapper">
                     <div class="cols col-8 centered">
                             <div class="horizontalLine"></div>
 
                             <div class="mainBlock">
-                            <h3 class="blockTitle">галерея</h3>
+                            <h3 class="blockTitle"><span class="locale" data-name="gallery_title"></span></h3>
                             <div class="logoSmall">
-                                <img src="/WEB-INF/ckfinder/galeryNew.png" alt="">
+                                <img src="/resources/img/galeryNew.png" alt="">
                             </div>
 
 
@@ -216,20 +178,16 @@
                 </div>          
             </div>
 
-         <div class="footer">
-                <div class="cols col-8 centered">
-                    <div class="cols col-7">
-                        2014-2015, Федерация конного спорта Полтавы. All Rights Reserved
-                    </div>
-                    <div class="cols col-5"><a class="registrationLink" href="/authorization">Войти / Зарегистрироваться</a><i class="fa fa-envelope"></i> info@gmail.com</div>
-                </div>
-            </div>
+            <jsp:include page="footer.jsp"/>
 
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script src="/resources/js/gamma/jquery.masonry.min.js"></script>
         <script src="/resources/js/gamma/jquerypp.custom.js"></script>
         <script src="/resources/js/gamma/gamma.js"></script>
+        <%--<script src="/resources/js/jquery.js"></script>--%>
+        <script src="/resources/js/locale.js"></script>
+
         <script type="text/javascript">
             $(function() {
                 var GammaSettings = {

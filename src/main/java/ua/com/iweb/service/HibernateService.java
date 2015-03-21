@@ -1,9 +1,9 @@
 package ua.com.iweb.service;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Session;
+import org.hibernate.Query;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.service.ServiceRegistry;
@@ -12,7 +12,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 import java.util.Map;
 
 /**
- * Created by root on 05.03.15.
+ * Created by vanya on 17.03.15.
  */
 public class HibernateService {
     private static final SessionFactory ourSessionFactory;
