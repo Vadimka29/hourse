@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by vanya on 19.03.15.
+ * Created by vanya on 24.03.15.
  */
 @Entity
 @Table(name = "blog", schema = "", catalog = "hourse")
@@ -14,6 +14,7 @@ public class BlogEntity {
     private String messageBody;
     private String imageUrl;
     private String messageTittle;
+    private String messageSmallDescription;
 
     @Id
     @Column(name = "message_id")
@@ -65,6 +66,16 @@ public class BlogEntity {
         this.messageTittle = messageTittle;
     }
 
+    @Basic
+    @Column(name = "messageSmallDescription")
+    public String getMessageSmallDescription() {
+        return messageSmallDescription;
+    }
+
+    public void setMessageSmallDescription(String messageSmallDescription) {
+        this.messageSmallDescription = messageSmallDescription;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -76,6 +87,8 @@ public class BlogEntity {
         if (imageUrl != null ? !imageUrl.equals(entity.imageUrl) : entity.imageUrl != null) return false;
         if (messageBody != null ? !messageBody.equals(entity.messageBody) : entity.messageBody != null) return false;
         if (messageDate != null ? !messageDate.equals(entity.messageDate) : entity.messageDate != null) return false;
+        if (messageSmallDescription != null ? !messageSmallDescription.equals(entity.messageSmallDescription) : entity.messageSmallDescription != null)
+            return false;
         if (messageTittle != null ? !messageTittle.equals(entity.messageTittle) : entity.messageTittle != null)
             return false;
 
@@ -89,6 +102,7 @@ public class BlogEntity {
         result = 31 * result + (messageBody != null ? messageBody.hashCode() : 0);
         result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
         result = 31 * result + (messageTittle != null ? messageTittle.hashCode() : 0);
+        result = 31 * result + (messageSmallDescription != null ? messageSmallDescription.hashCode() : 0);
         return result;
     }
 }

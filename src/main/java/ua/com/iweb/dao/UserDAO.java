@@ -28,7 +28,7 @@ public class UserDAO implements UserDAOInterface {
         try {
             session = HibernateService.getSession();
             String hql = "FROM UserEntity u WHERE u.userLogin = :login";
-            Query query = session.createQuery(hql);
+            Query query  = session.createQuery(hql);
             query.setParameter("login", formData.getLogin());
             List<UserEntity> res = query.list();
             user = (res.size() == 1) ? res.get(0) : null;

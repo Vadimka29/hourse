@@ -11,6 +11,7 @@ import java.sql.Date;
 public class GalleryEntity {
     private int photoId;
     private Date createDate;
+    //name of picture
     private String description;
 
     @Id

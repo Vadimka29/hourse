@@ -4,31 +4,35 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Запись блога | Федерация конного спорта Полтавы</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
     <link rel="stylesheet" href="/resources/css/horse_clubs.css">
     <link rel="stylesheet" href="/resources/css/mainsheet.css">
     <link rel="stylesheet" href="/resources/css/fontawesome.css">
     <link rel="stylesheet" href="/resources/css/gallery.css">
     <script src="/resources/js/gamma/modernizr.custom.70736.js"></script>
+    <script src="/resources/js/adaptive.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="page-wrapper gallery">
+    <div class="page-wrapper salePage">
         <jsp:include page="header.jsp"/>
-        <div class="row mainBlockWrapper">
+        <div class="row mainBlockWrapper singlePage">
             <div class="cols col-8 centered">
-                <div class="horizontalLine"></div>
                 <%
                     BlogEntity blogPost = (BlogEntity) request.getAttribute("post");
                     if(blogPost != null) {
                 %>
                 <div class="mainBlock">
-                    <h3 class="blockTitle"><span class="locale" data-name="gallery_title"></span></h3>
+                    <h3 class="blockTitle"><span class="locale" data-name="single_page_title"></span></h3>
                     <div class="logoSmall">
-                        <img src="/resources/img/galeryNew.png" alt="">
+                        <img src="/resources/img/chat.png" alt="">
                     </div>
-                    <p><%=blogPost.getMessageTittle()%></p>
-                    <div><%=blogPost.getMessageBody()%></div>
+                    <p class="saleTitle"><%=blogPost.getMessageTittle()%></p>
+                    <div class="saleBody "><%=blogPost.getMessageBody()%></div>
                 </div>
                 <%
                     }

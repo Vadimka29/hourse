@@ -7,6 +7,10 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+        <title>Добавление на продажу | Федерация конного спорта Полтавы</title>
         <link rel="stylesheet" href="/resources/css/horse_clubs.css">
         <link rel="stylesheet" href="/resources/css/mainsheet.css">
         <link rel="stylesheet" href="/resources/css/fontawesome.css">
@@ -17,6 +21,23 @@
         <script src="/resources/js/ckeditor/ckeditor.js"></script>
         <script src="/resources/js/addOrder.js"></script>
         <script type="text/javascript" src="/resources/ckfinder/ckfinder.js"></script>
+        <script src="/resources/js/adaptive.js"></script>
+        <%--<script>--%>
+            <%--$('document').ready(function(){--%>
+                    <%--var data = {--%>
+                        <%--dir:"lol"--%>
+                    <%--};--%>
+                    <%--data = JSON.stringify(data);--%>
+                    <%--$.ajax({--%>
+                        <%--type: 'POST',--%>
+                        <%--url: '/file/upload',--%>
+                        <%--data: data,--%>
+                        <%--success: function(data){--%>
+<%--//                            window.location.href="/sale"--%>
+                        <%--}--%>
+                    <%--});--%>
+            <%--});--%>
+        <%--</script>--%>
 
     </head>
     <body>
@@ -31,6 +52,7 @@
                                 <img src="/resources/img/cartSmall3.png" alt="">
                             </div>
                             <div class="row">
+
                                 <form method="post" id="addSaleForm">
                                     <div class="cols col-12">
                                         <h3 class="title"><span class="locale" data-name="add_order__order_title"></span></h3>
@@ -46,11 +68,12 @@
 
 
                                     <div class="cols col-12">
+
                                         <h3 class="title"><span class="locale" data-name="add_order__order_description"></span></h3>
 
                                         <textarea id="editor1" name="editor1" rows="10" cols="80"></textarea>
-                                        <ckfinder:setupCKEditor basePath="/resources/ckfinder/" editor="editor1" />
-                                        <ckeditor:replace replace="editor1" basePath="/resources/js/ckeditor/" />
+                                        <%--<ckfinder:setupCKEditor basePath="/resources/ckfinder/" editor="editor1" />--%>
+                                        <%--<ckeditor:replace replace="editor1" basePath="/resources/js/ckeditor/" />--%>
 
                                         <div id="addOrder" class="submit"><span class="locale" data-name="add_button"></span></div>
                                     </div>
@@ -67,17 +90,14 @@
             <jsp:include page="footer.jsp"/>
         </div>
     </body>
-    <%--<script>--%>
-        <%--$(document).ready(function(){--%>
-            <%--CKEDITOR.replace( 'editor1', {--%>
-                <%--extraPlugins: 'image2,video',--%>
-                <%--extraAllowedContent: 'video[*]{*};source[*]{*}',--%>
-                <%--skin : 'icy_orange',--%>
-                <%--filebrowserBrowseUrl: '/resources/ckfinder/',--%>
-                <%--filebrowserWindowWidth: '860',--%>
-                <%--filebrowserWindowHeight: '660'--%>
-            <%--} )--%>
-        <%--});--%>
-    <%--</script>--%>
+    <script>
+
+        $(document).ready(function(){
+            CKEDITOR.replace( 'editor1', {
+                extraPlugins: 'image2,video,customfileupload',
+                extraAllowedContent: 'video[*]{*};source[*]{*}'
+            } );
+        });
+    </script>
 
 </html>

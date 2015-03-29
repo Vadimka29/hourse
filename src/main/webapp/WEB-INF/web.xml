@@ -65,6 +65,14 @@
         <servlet-name>BlogRecordServlet</servlet-name>
         <servlet-class>ua.com.iweb.controller.BlogRecordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GalleryPageServlet</servlet-name>
+        <servlet-class>ua.com.iweb.controller.GalleryPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GalleryPageServlet</servlet-name>
+        <url-pattern>/gallery/*</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>OrderRecordServlet</servlet-name>
         <url-pattern>/sale/post/*</url-pattern>

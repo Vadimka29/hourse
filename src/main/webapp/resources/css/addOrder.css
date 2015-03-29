@@ -1,5 +1,5 @@
 textarea {
-    width: 100%; /* Ширина поля в процентах */
+    width: 100%;/* Ширина поля в процентах */
     min-height: 10px; /* Высота поля в пикселах */
     resize: vertical; /* Запрещаем изменять размер */
     border:1px solid #ddd;
@@ -21,7 +21,30 @@ textarea.description {
 }
 #cke_editor1{
     margin-left: 1.9em;
-    width: 99%;
+    max-width: 99%;
+}
+.admin #cke_editor1{
+    max-width: 100%;
+    margin: 0 1.9em 0 1.9em;
+}
+.admin textarea{
+    max-width: 95% !important;
+    width: 95%;
+    resize: vertical; /* Запрещаем изменять размер */
+    border:1px solid #ddd;
+    padding: 0.9em 0 0 0.5em;
+    margin-left: 2em;
+    color: #767676;
+    font-size: 1.1em;
+}
+.admin  .submit{
+    float: left;
+    padding: 0.4em 2em;
+    border:2px solid #192A31;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 2em 1em;
+    font-size: 1.2em;
 }
 .file_upload{
     position: relative;

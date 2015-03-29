@@ -19,7 +19,7 @@ $('document').ready(function(){
     $('.submit.registerAction').bind('click',function(){
         var data = {};
         data["userName"] = $('#registerActionName').val();
-        data["userPhone"] = $('#registerActionPhoneNummber').val();
+        data["userPhone"] = $('#registerActionPhoneNumber').val();
         data["userEmail"] = $('#registerActionEmail').val();
         data["userLogin"] = $('#registerActionLogin').val();
         data["userPass"] = $('#registerActionPassword').val();

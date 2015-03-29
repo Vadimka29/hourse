@@ -13,6 +13,7 @@ import ua.com.iweb.dao.UserDAO;
 import ua.com.iweb.enteties.UserEntity;
 import ua.com.iweb.helpfull.Login;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -37,10 +38,14 @@ public class AuthorizationController {
             if (userDAO.authorizationCheck(login)) {
                 session.setAttribute("user", login.getLogin());
                 System.out.println(session.getAttribute("user"));
+                Cookie cookie = new Cookie("isAuth", login.getLogin());
+                response.addCookie(cookie);
                 return login.getLogin();
             } else {
                 session.setAttribute("user", unregistered);
                 System.out.println(session.getAttribute("user"));
+                Cookie cookie = new Cookie("isAuth",unregistered);
+                response.addCookie(cookie);
                 return unregistered;
             }
         } catch (SQLException e){

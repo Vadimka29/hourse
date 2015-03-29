@@ -15,16 +15,15 @@ import java.util.List;
 public class BlogDAO implements BlogDAOInterface {
 
     @Override
-    public boolean addPost(BlogEntity entity) throws SQLException {
+    public void addPost(BlogEntity entity) throws SQLException {
         if(entity == null)
-            return false;
+            return;
         Session session = null;
         try {
             session = HibernateService.getSession();
             session.getTransaction().begin();
             session.save(entity);
             session.getTransaction().commit();
-            return true;
         } finally {
             if(session != null && session.isOpen()){
                 session.close();

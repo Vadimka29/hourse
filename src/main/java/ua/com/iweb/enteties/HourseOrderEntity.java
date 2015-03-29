@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by vanya on 19.03.15.
+ * Created by vanya on 22.03.15.
  */
 @Entity
 @Table(name = "hourse_order", schema = "", catalog = "hourse")
@@ -17,6 +17,7 @@ public class HourseOrderEntity {
     private String orderType;
     private String orderTitle;
     private String orderAuthor;
+    private String orderSmallDescription;
 
     @Id
     @Column(name = "order_id")
@@ -98,22 +99,34 @@ public class HourseOrderEntity {
         this.orderAuthor = orderAuthor;
     }
 
+    @Basic
+    @Column(name = "order_small_description")
+    public String getOrderSmallDescription() {
+        return orderSmallDescription;
+    }
+
+    public void setOrderSmallDescription(String orderSmallDescription) {
+        this.orderSmallDescription = orderSmallDescription;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        HourseOrderEntity that = (HourseOrderEntity) o;
+        HourseOrderEntity entity = (HourseOrderEntity) o;
 
-        if (orderId != that.orderId) return false;
-        if (orderAuthor != null ? !orderAuthor.equals(that.orderAuthor) : that.orderAuthor != null) return false;
-        if (orderDate != null ? !orderDate.equals(that.orderDate) : that.orderDate != null) return false;
-        if (orderDescription != null ? !orderDescription.equals(that.orderDescription) : that.orderDescription != null)
+        if (orderId != entity.orderId) return false;
+        if (orderAuthor != null ? !orderAuthor.equals(entity.orderAuthor) : entity.orderAuthor != null) return false;
+        if (orderDate != null ? !orderDate.equals(entity.orderDate) : entity.orderDate != null) return false;
+        if (orderDescription != null ? !orderDescription.equals(entity.orderDescription) : entity.orderDescription != null)
             return false;
-        if (orderPhone != null ? !orderPhone.equals(that.orderPhone) : that.orderPhone != null) return false;
-        if (orderPhoto != null ? !orderPhoto.equals(that.orderPhoto) : that.orderPhoto != null) return false;
-        if (orderTitle != null ? !orderTitle.equals(that.orderTitle) : that.orderTitle != null) return false;
-        if (orderType != null ? !orderType.equals(that.orderType) : that.orderType != null) return false;
+        if (orderPhone != null ? !orderPhone.equals(entity.orderPhone) : entity.orderPhone != null) return false;
+        if (orderPhoto != null ? !orderPhoto.equals(entity.orderPhoto) : entity.orderPhoto != null) return false;
+        if (orderSmallDescription != null ? !orderSmallDescription.equals(entity.orderSmallDescription) : entity.orderSmallDescription != null)
+            return false;
+        if (orderTitle != null ? !orderTitle.equals(entity.orderTitle) : entity.orderTitle != null) return false;
+        if (orderType != null ? !orderType.equals(entity.orderType) : entity.orderType != null) return false;
 
         return true;
     }
@@ -128,6 +141,7 @@ public class HourseOrderEntity {
         result = 31 * result + (orderType != null ? orderType.hashCode() : 0);
         result = 31 * result + (orderTitle != null ? orderTitle.hashCode() : 0);
         result = 31 * result + (orderAuthor != null ? orderAuthor.hashCode() : 0);
+        result = 31 * result + (orderSmallDescription != null ? orderSmallDescription.hashCode() : 0);
         return result;
     }
 }

@@ -40,6 +40,8 @@ input[type="text"], input[type="password"], textarea, select {
 body{
     font: 100%/1.5em  sans-serif;
     font-family: "Myriad", "Lucida Grande", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
+    font-family: 'Exo 2', sans-serif !important;
+    font-size: 16px;
     font-weight: 300;
     color: #363636;
 }
@@ -120,6 +122,9 @@ ul{
 }
 
 /*MAIN PAGE*/
+.pointer{
+    cursor: pointer;
+}
 body{
     font-family:'Myriad','Lucida Grande','Helvetica Neue','Helvetica','Arial','Verdana','sans-serif';
 
@@ -178,15 +183,20 @@ body{
 
 .menuWrapper ul li{
     display: inline-block;
+    min-width: 4em;
+    z-index: 999;
 }
 .menuWrapper ul li a{
     display: block;
     text-transform: uppercase;
     color: #fff;
-    font-size: 0.9em;
-    font-weight: bold;
-    padding:0.6em 2em 0.5em 2em;
-
+    font-size: 0.8em;
+    padding:0.6em 2em 0.6em 2em;
+    text-align: center;
+}
+.menuWrapper ul li a span{
+    display: block;
+    margin:0 auto;
 }
 .menuWrapper ul li:hover{
     background:#fff;
@@ -221,6 +231,7 @@ body{
     border-top: 1px solid #E6E6E6;
     font-size: 0.9em;
     width: 100%;
+    margin: 0 auto;
 }
 .menuWrapper ul li ul li:first-child{
     border-top: none;
@@ -230,7 +241,7 @@ body{
 }
 .menuWrapper ul li ul li a{
     text-transform: none;
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 @-webkit-keyframes fadeIn {
@@ -325,8 +336,12 @@ body{
 .mainBlock .blockTitle{
     position: absolute;
     left: 3em;
-    top: -2.3em;
+    top: -2.55em;
     text-transform: uppercase;
+    font-size: 1.1em;
+}
+.mainBlock .blockTitle span{
+    font-weight: bold;
 }
 .registrationLink{
     cursor: pointer;
@@ -343,12 +358,18 @@ body{
 .sale.mainBlock .item{
     margin-bottom: 4em;
 }
+
 .sale .item .photo img{
     max-width: 100%;
+    box-shadow: 0px 1px 2px 0  rgba(0, 0, 0, 0.24);
 }
 .sale .item .title{
     text-align: left;
     margin-bottom: 0.5em;
+}
+.sale .item .title span{
+    float: right;
+    font-size: 0.9em;
 }
 .sale .item .description {
     padding:  0 0 0 2em;
@@ -515,12 +536,322 @@ body{
     height: 1.5em;
     font-size: 0.9em;
     font-weight: bold;
+
 }
 .pageNav ul li:hover{
     background:  #192A31;
-    color: #fff;
+    color: #fff !important;
+}
+.pageNav ul li:hover a{
+    color: #fff !important;
+}
+.pageNav ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    padding-bottom: 1em;
 }
 .pageNav ul li.active{
     background:  #192A31;
     color: #fff;
+}
+
+/*SINGLE  SALE PAGE*/
+.salePage .mainBlock{
+    padding: 0 3em 2em 3em;
+}
+.salePage .saleTitle{
+    font-weight: bold;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+    letter-spacing: 0.1em;
+}
+.salePage .saleBody{
+    text-align:initial;
+}
+.salePage .saleBody img{
+    max-width: 100%;
+}
+/*LEADER PAGE*/
+.leaderPage{
+    padding: 2em 3em 2em 4em;
+}
+.leaderPage ul{
+    list-style: none;
+}
+.leaderPage ul li{
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    padding-left: 0.5em;
+}
+.leaderPage ul li span{
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.leaderPage .photo>div{
+    margin: 0 auto;
+    width: 10em ;
+    height: 10em;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0px 1px 2px 0  rgba(0, 0, 0, 0.24);
+}
+.leaderPage .description{
+    padding-top: 3em;
+}
+/*CONTACTS SINGLE PAGE*/
+.contacts{
+    padding: 4em 3em 4em 4em;
+}
+.contacts ul{
+    list-style: none;
+}
+.contacts ul li{
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+    padding-left: 0.5em;
+}
+.contacts ul li span{
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.contacts .map{
+    width: 100%;
+    height:20em;
+    box-shadow: 0px 1px 2px 0  rgba(0, 0, 0, 0.24);
+}
+
+
+
+
+.showSubMenu{
+    display: none;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    padding-top: 1em;
+    z-index: 99999 !important;
+}
+.showSubMenu>div{
+    text-align: left !important;
+    padding-left: 1em;
+    font-size: 0.9em;
+}
+.showSubMenu .fa{
+    color: #fff;
+}
+.showSubMenu .showSubMenuButton{
+    display: block;
+    float: right;
+    font-size: 1.4em;
+    margin:0 1em 1em 0;
+    cursor: pointer;
+}
+
+.subMenu{
+    display: none;
+    background: rgba(35, 35, 35, 0.99);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1em 0 1em 2em;
+    min-height: 100%;
+    line-height: 1.8em;
+    width: 100%;
+    z-index: 999999;
+    font-size: 0.8em;
+
+}
+.subMenu img{
+    max-width: 45%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+.subMenu .localeButton span{
+    color: #fff;
+    font-weight: bold;
+    margin-top: 3em !important;
+
+}
+.subMenu ul{
+    list-style: none;
+}
+.subMenu ul li{
+    display: block;
+    clear: both;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    cursor: pointer;
+    float: left;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+.subMenu ul li .fa{
+    color: #fff;
+    margin-left: 0.5em;
+    font-size: 1.2em;
+}
+.subMenu ul li a{
+    color: #fff;
+}
+
+.subMenu ul li:hover{
+    background: none;
+    color: #fff;
+}
+.subMenu ul li:hover a{
+    color: #fff;
+}
+.subMenu ul li ul{
+    display: none;
+    position: relative;
+    left: 2em;
+    margin: 1em 0 1em 0;
+}
+.subMenu ul li ul li a{
+    border:none;
+}
+
+.subMenu ul li ul li{
+    display: block;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+.responseMenuClose{
+    position: absolute;
+    width: 100%;
+    padding: 0 1em;
+    font-size: 1.8em !important;
+    right: 0.5em;
+    top: 1em;
+    list-style: none;
+}
+.subMenu .fa-remove{
+    color: #fff;
+    cursor: pointer;
+    float: right !important;
+}
+
+
+/*АДМИНКА*/
+.addOrder.admin{
+    max-width: 100%;
+    padding: 0 3em 0 3em;
+}
+.addOrder.admin .item img{
+    max-width: 31.333333333%;
+    float: left;
+    margin: 0.5%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.addOrder.admin .item:nth-child(3n+1){
+    clear: left;
+}
+/*--------------------------------------ADAPTIVE-CSS-------------------------------------*/
+/*=================================*/
+@media screen and (max-width: 500px) {
+    body{
+        font: 100%/1em  sans-serif;
+        line-height: 1.4em;
+    }
+    .container .cols.col-1,
+    .container .cols.col-2,
+    .container .cols.col-3,
+    .container .cols.col-4,
+    .container .cols.col-5,
+    .container .cols.col-6,
+    .container .cols.col-7,
+    .container .cols.col-8,
+    .container .cols.col-9,
+    .container .cols.col-10,
+    .container .cols.col-11,
+    .container .cols.col-12{width: 100%;}
+    .header{
+        display: none;
+    }
+    .mainBlock{
+        border: none;
+        padding: 1em 1em 1em 1em !important;
+    }
+    .mainBlockWrapper{
+        padding: 1em 0 2em 0;
+        margin-top: 0;
+    }
+    .blockTitle{
+        margin-top: 1em;
+        font-size: 1.5em !important;
+    }
+    .mainBlock .blockTitle{
+        display: block;
+        position: relative;
+        left: 0;
+        margin: 0 auto;
+    }
+    .mainBlock .logoSmall{
+        position: relative;
+        top: -4.8em;
+        left: 3em;
+    }
+    .menuWrapper>ul{
+        display: none;
+    }
+    .showSubMenu{
+        display: block;
+    }
+
+    .slider .arrow{
+        display: none;
+    }
+    .logoSmall{
+        display: none;
+    }
+    .logoWrapper img{
+        margin-top: 3.5em;
+        max-width: 40%;
+    }
+    .footer{
+        font-size: 0.8em;
+        height: auto;
+        overflow: hidden;
+        padding: 1em;
+    }
+    .footer .col-5{
+        display: none;
+    }
+    /*contacts*/
+    .contacts{
+        padding: 2em;
+    }
+    /*sale */
+    .sale .item .description {
+        padding: 1em 1em  1em 1em;
+    }
+    .sale .addNewSale{
+        display: block;
+        clear: both;
+        margin-top: 0.5em;
+        margin-left: 0;
+        font-size: 0.9em;
+
+    }
+    .singlePage{
+        max-width: 100%;
+    }
+    .singlePage img{
+        max-width: 100% !important;
+    }
 }

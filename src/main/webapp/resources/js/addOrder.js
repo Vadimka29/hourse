@@ -1,47 +1,43 @@
 $('document').ready(function(){
-    var decodeHtmlEntity = function(str) {
-        return str.replace(/&#(\d+);/g, function(match, dec) {
-            return String.fromCharCode(dec);
-        });
+    String.prototype.stripTags = function() {
+        return this.replace(/<\/?[^>]+>/g, '');
     };
 
-    var encodeHtmlEntity = function(str) {
-        var buf = [];
-        for (var i=str.length-1;i>=0;i--) {
-            buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
+    var replaceHtmlEntities = (function() {
+        var translate_re = /&(nbsp|amp|quot|lt|gt);/g;
+        var translate = {
+            "nbsp": "",
+            "amp" : "&",
+            "quot": "\"",
+            "lt"  : "<",
+            "gt"  : ">"
+        };
+        return function(s) {
+            return ( s.replace(translate_re, function(match, entity) {
+                return translate[entity];
+            }) );
         }
-        return buf.join('');
-    };
+    })();
+
+
     $('#addOrder').bind('click', function(){
         var data = {};
-        var thumbNailRegex = /src=&quot;.*&quot;"/;
-        data["orderDescription"] = CKEDITOR.instances.editor1.getData();
+        var thumbNailRegex = /<img.+?src=[\"'](.+?)[\"'].*?>/;
+        data["orderDescription"] = replaceHtmlEntities(CKEDITOR.instances.editor1.getData());
         data["orderTitle"] = $('#saleItemTitle').val();
         data["orderType"] = $('input[name=orderType]:checked', '#addSaleForm').val();
-        data["orderPhoto"] = "";
         var thumbNail = thumbNailRegex.exec(data["orderDescription"]);
-        console.log (thumbNail);
-
-        //var re = /src=&quot;(.*)&quot;/
-        //
-        //alert( str.match(re) )
-
-        console.log(data["orderDescription"].match(thumbNailRegex));
-        //123
-        //if ( thumbNail.length > 1 ){
-        //    var thumb = thumbNail[1]
-        //}
-        //else{
-        //    //дефолтная пикча
-        //    var thumb = ""
-        //} data = JSON.stringify(data);
+        data["orderPhoto"] = (thumbNail == null)? "http://www.pakistancardealers.com/img/no-image.jpg" : thumbNail[1];
+        data["orderSmallDescription"] = replaceHtmlEntities(data["orderDescription"]).stripTags().replace(/(<img (.*) \/>)/g, '').replace(/[\n\r]/g, ' ').replace(/\s{2,}/g, ' ').substr(0,250) + "...";
+        console.log(data["orderSmallDescription"]);
+        data = JSON.stringify(data);
         $.ajax({
             type: 'POST',
             url: '/order/new',
             data: data,
             success: function(data){
-                // window.location.href="index.html"
+                 window.location.href="/sale"
             }
         });
     })
-})
+});

@@ -3,12 +3,16 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
         <link rel="stylesheet" href="/resources/css/horse_clubs.css">
         <link rel="stylesheet" href="/resources/css/mainsheet.css">
         <link rel="stylesheet" href="/resources/css/fontawesome.css">
         <script src="/resources/js/jquery.js"></script>
         <script src="/resources/js/ckeditor/ckeditor.js"></script>
         <script src="/resources/js/mainPage.js"></script>
+        <script src="/resources/js/adaptive.js"></script>
     </head>
     <body>
         <div class="container">
