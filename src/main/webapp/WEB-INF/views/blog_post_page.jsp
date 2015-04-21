@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="/resources/css/fontawesome.css">
     <link rel="stylesheet" href="/resources/css/gallery.css">
     <script src="/resources/js/gamma/modernizr.custom.70736.js"></script>
+    <%--порядок важен--%>
+    <script src="/resources/js/common.js"></script>
+    <script src="/resources/js/locale.js"></script>
     <script src="/resources/js/adaptive.js"></script>
 </head>
 <body>
@@ -33,6 +36,9 @@
                     </div>
                     <p class="saleTitle"><%=blogPost.getMessageTittle()%></p>
                     <div class="saleBody "><%=blogPost.getMessageBody()%></div>
+                    <div class="logoSmall second">
+                        <img src="/resources/img/chat.png" alt="">
+                    </div>
                 </div>
                 <%
                     }

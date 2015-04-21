@@ -34,10 +34,10 @@ $('document').ready(function(){
         $.ajax({
             type: 'POST',
             url: '/order/new',
-            data: data,
-            success: function(data){
-                 window.location.href="/sale"
-            }
+            data: data
+            //success: function(data){
+            //     window.location.href="/sale"
+            //}
         });
     })
 });

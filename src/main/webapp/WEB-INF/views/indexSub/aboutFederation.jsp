@@ -1,16 +1,46 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: vanya
-  Date: 22.03.15
-  Time: 17:39
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@page import="ua.com.iweb.enteties.BlogEntity" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Про федерацию | Федерация конного спорта Полтавы</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
+    <link rel="stylesheet" href="/resources/css/horse_clubs.css">
+    <link rel="stylesheet" href="/resources/css/mainsheet.css">
+    <link rel="stylesheet" href="/resources/css/fontawesome.css">
+    <link rel="stylesheet" href="/resources/css/gallery.css">
+    <script src="/resources/js/gamma/modernizr.custom.70736.js"></script>
+    <%--порядок важен--%>
+    <script src="/resources/js/jquery.js"></script>
+    <script src="/resources/js/common.js"></script>
+    <script src="/resources/js/locale.js"></script>
+    <script src="/resources/js/adaptive.js"></script>
 </head>
 <body>
-about
+<div class="container">
+    <div class="page-wrapper salePage">
+        <jsp:include page="../header.jsp"/>
+        <div class="row mainBlockWrapper singlePage">
+            <div class="cols col-8 centered">
+                <%--<div class="mainBlock">--%>
+                <h2 class="inprocessMsg">
+                    Страница находится в разработке
+                </h2>
+                <%--</div>--%>
+            </div>
+        </div>
+    </div>
+
+    <jsp:include page="../footer.jsp"/>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<%--<script src="/resources/js/jquery.js"></script>--%>
+<script src="/resources/js/locale.js"></script>
+
 </body>
 </html>

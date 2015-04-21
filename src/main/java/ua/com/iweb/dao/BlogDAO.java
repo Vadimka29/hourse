@@ -47,6 +47,21 @@ public class BlogDAO implements BlogDAOInterface {
     }
 
     @Override
+    public int getCount(String type) throws SQLException {
+        Session session = null;
+        try {
+            session = HibernateService.getSession();
+            Query q = session.createQuery("select count(*) from BlogEntity where messageType =:type");
+            q.setParameter("type", type);
+            return ((Long) q.uniqueResult()).intValue();
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
+    @Override
     public BlogEntity getBlogById(int id) throws SQLException {
         Session session = null;
         BlogEntity entity = null;
@@ -62,12 +77,13 @@ public class BlogDAO implements BlogDAOInterface {
     }
 
     @Override
-    public List<BlogEntity> getPosts(int countIndex) throws SQLException {
+    public List<BlogEntity> getPosts(int countIndex, String type) throws SQLException {
         Session session = null;
         try {
             session = HibernateService.getSession();
             int startFrom = 10*countIndex - 10;
-            Query q = session.createQuery("From BlogEntity order by messageId desc");
+            Query q = session.createQuery("From BlogEntity where messageType =:type order by messageId desc");
+            q.setParameter("type", type);
             q.setFirstResult(startFrom);
             q.setMaxResults(10);
             return q.list();

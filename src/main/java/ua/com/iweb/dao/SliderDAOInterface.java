@@ -9,6 +9,7 @@ import java.util.List;
  * Created by vanya on 25.03.15.
  */
 public interface SliderDAOInterface {
-    public void addPhoto(SliderEntity entity) throws SQLException;
-    public List<SliderEntity> getPhotos() throws SQLException;
+    void addPhoto(SliderEntity entity) throws SQLException;
+    List<SliderEntity> getPhotos() throws SQLException;
+    void deletePhoto(String name) throws SQLException;
 }

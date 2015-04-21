@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by vanya on 24.03.15.
+ * Created by vanya on 01.04.15.
  */
 @Entity
 @Table(name = "blog", schema = "", catalog = "hourse")
@@ -15,6 +15,7 @@ public class BlogEntity {
     private String imageUrl;
     private String messageTittle;
     private String messageSmallDescription;
+    private String messageType;
 
     @Id
     @Column(name = "message_id")
@@ -76,6 +77,16 @@ public class BlogEntity {
         this.messageSmallDescription = messageSmallDescription;
     }
 
+    @Basic
+    @Column(name = "message_type")
+    public String getMessageType() {
+        return messageType;
+    }
+
+    public void setMessageType(String messageType) {
+        this.messageType = messageType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -91,6 +102,7 @@ public class BlogEntity {
             return false;
         if (messageTittle != null ? !messageTittle.equals(entity.messageTittle) : entity.messageTittle != null)
             return false;
+        if (messageType != null ? !messageType.equals(entity.messageType) : entity.messageType != null) return false;
 
         return true;
     }
@@ -103,6 +115,7 @@ public class BlogEntity {
         result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
         result = 31 * result + (messageTittle != null ? messageTittle.hashCode() : 0);
         result = 31 * result + (messageSmallDescription != null ? messageSmallDescription.hashCode() : 0);
+        result = 31 * result + (messageType != null ? messageType.hashCode() : 0);
         return result;
     }
 }

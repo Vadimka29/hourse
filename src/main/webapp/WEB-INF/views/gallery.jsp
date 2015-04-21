@@ -6,7 +6,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>Галерея | Федерация конного спорта Полтавы</title>
         <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
         <link rel="stylesheet" href="/resources/css/horse_clubs.css">
@@ -14,7 +13,8 @@
         <link rel="stylesheet" href="/resources/css/fontawesome.css">
         <link rel="stylesheet" href="/resources/css/gallery.css">
         <script src="/resources/js/gamma/modernizr.custom.70736.js"></script>
-        <script src="/resources/js/adaptive.js"></script>
+
+
     </head>
     <body>
         <div class="container">
@@ -38,38 +38,40 @@
                                     <%--<li>3</li>--%>
                                 <%--</ul>--%>
                             <%--</div>--%>
+                                <div class="main photoGallery">
 
-                            <div class="main photoGallery">
-                            <div class="gamma-container gamma-loading" id="gamma-container">
-                                <ul class="gamma-gallery">
-                            <%
-                                List<GalleryEntity> photos = (List<GalleryEntity>) request.getAttribute("photos");
-                                for(GalleryEntity photo: photos){
-                            %>
-
-                                    <li>
-                                        <div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350">
-                                            <div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="1300"></div>
-                                            <div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="1000"></div>
-                                            <div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="700"></div>
-                                            <div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="300"></div>
-                                            <div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="200"></div>
-                                            <div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="140"></div>
-                                            <div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>"></div>
-                                            <noscript>
-                                                <img src="/resources/uploads/gallery/<%=photo.getDescription()%>" alt="img03"/>
-                                            </noscript>
-                                        </div>
-                                    </li>
-                            <%
-                                }
-                            %>
+                                    <%
+                                        List<GalleryEntity> photos = (List<GalleryEntity>) request.getAttribute("photos");
+                                        for(GalleryEntity photo: photos){
+                                    %>
+                                    <div class="item" style="background:url('/resources/uploads/gallery/<%=photo.getDescription()%>'); background-size:cover;" data-image="/resources/uploads/gallery/<%=photo.getDescription()%>" data-description="<%=photo.getSecondTitle()%>">
+                                        <div class="description" ><div><span><%=photo.getTitle()%></span></div></div>
+                                    </div>
+                                    <%
+                                        }
+                                    %>
+                                </div>
 
 
-                                </ul>
-                                <div class="gamma-overlay"></div>
-                            </div>
-                        </div><!-- main. end of photoGallery-->
+
+                                    <%--<li>--%>
+                                        <%--<div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350">--%>
+                                            <%--<div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="1300"></div>--%>
+                                            <%--<div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="1000"></div>--%>
+                                            <%--<div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="700"></div>--%>
+                                            <%--<div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="300"></div>--%>
+                                            <%--<div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="200"></div>--%>
+                                            <%--<div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>" data-min-width="140"></div>--%>
+                                            <%--<div data-src="/resources/uploads/gallery/<%=photo.getDescription()%>"></div>--%>
+                                            <%--<noscript>--%>
+                                                <%--<img src="/resources/uploads/gallery/<%=photo.getDescription()%>" alt="img03"/>--%>
+                                            <%--</noscript>--%>
+                                        <%--</div>--%>
+                                    <%--</li>--%>
+
+
+
+                        <%--</div><!-- main. end of photoGallery-->--%>
                                 <div class="pageNav bottom">
                                     <ul>
                                         <%
@@ -83,6 +85,9 @@
                                         %>
                                     </ul>
                                 </div>
+                                <div class="logoSmall second">
+                                    <img src="/resources/img/galeryNew.png" alt="">
+                                </div>
                         </div>
                     </div>
                 </div>          
@@ -91,12 +96,11 @@
             <jsp:include page="footer.jsp"/>
 
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="/resources/js/gamma/jquery.masonry.min.js"></script>
         <script src="/resources/js/gamma/jquerypp.custom.js"></script>
         <script src="/resources/js/gamma/gamma.js"></script>
         <%--<script src="/resources/js/jquery.js"></script>--%>
-        <script src="/resources/js/locale.js"></script>
 
         <script type="text/javascript">
             $(function() {
@@ -138,6 +142,112 @@
                 Gamma.init( GammaSettings );
 
             });
-        </script>   
+        </script>
+        <%--порядок важен--%>
+        <script src="/resources/js/common.js"></script>
+        <script src="/resources/js/locale.js"></script>
+        <script src="/resources/js/adaptive.js"></script>
+        <script>
+            var imagesSet = [];
+            var imagesDescriptionSet = [];
+            var tempImageNumber = null;
+
+            $(document).ready(function(){
+                imagesSet = getAllImages();
+                imagesDescriptionSet = getAllImagesDescription();
+
+                $('.photoGallery .item').click(function(){
+                    var tempImage = $(this).data().image;
+                    var tempImageDescription = $(this).data().description;
+                    tempImageNumber = imagesSet.indexOf(tempImage);
+                    showPopup(tempImage);
+                });
+            });
+
+            $(document).on( 'click', '.leftArrow', function () {
+                tempImageNumber -= 1;
+                if (tempImageNumber < 0 )
+                    tempImageNumber = imagesSet.length-1;
+                renderImage(tempImageNumber);
+            }).on( 'click', '.rightArrow', function () {
+                tempImageNumber += 1;
+                if (tempImageNumber > imagesSet.length-1 )
+                    tempImageNumber = 0;
+                renderImage(tempImageNumber);
+            });
+
+
+
+
+            function getAllImages(){
+                var temp = [];
+                $('.photoGallery .item').each(function(){
+                    temp.push($(this).data().image);
+                });
+                return temp;
+
+            }
+
+            function getAllImagesDescription(){
+                var temp = [];
+                $('.photoGallery .item').each(function(){
+                    temp.push($(this).data().description);
+                });
+                return temp;
+
+            }
+
+
+
+
+            function renderImage(input){
+                console.log(input);
+                // $('.popUp img').attr("src", imagesSet[input]);
+                var img = $('.popUp img');
+                img.fadeOut(300, function() {
+                    img.attr("src", imagesSet[input]);
+                    img.fadeIn(300);
+                });
+                var description = $('.popUp .descriptionWrapper');
+                description.fadeOut(300, function() {
+                    description.text(imagesDescriptionSet[input]);
+                    description.fadeIn(300);
+                });
+            }
+
+            function removePopup(){
+                $(".popUp").remove();
+
+            }
+            function hidePopup(){
+                $(".popUp").fadeOut("fast");
+                setTimeout(removePopup,500);
+                $(".container").removeClass("blured");
+
+            }
+
+
+            function showPopup(input){
+                $(".container").addClass("blured");
+                $("body").append('<div class="popUp"> ' +
+                '<div class="leftArrow arrow"><div></div></div>'+
+                '<div class="rightArrow arrow"><div></div></div>'+
+                '                <div class="popUpCloseButton" onclick="hidePopup()">' +
+                '                    <i class="fa fa-close "></i>' +
+                '                </div>' +
+                    // '                        <div class="popUpWrapper">' +
+                '                                <div class="imgWrapper"><img src="' + input + '"/></div>' +
+                '                                <div class="descriptionWrapper">' + imagesDescriptionSet[tempImageNumber] + '</div>                                                       '+
+                    // '                        </div>' +
+                '                </div>');
+
+                $(".popUp").fadeIn("slow");
+
+
+
+
+            }
+
+        </script>
     </body>
 </html>

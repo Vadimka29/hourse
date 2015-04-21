@@ -15,6 +15,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script src="/assets/gmap3.js?body=1" type="text/javascript"></script>
     <script src="/resources/js/map.js"></script>
+    <%--порядок важен--%>
+    <script src="/resources/js/jquery.js"></script>
+    <script src="/resources/js/common.js"></script>
+    <script src="/resources/js/locale.js"></script>
     <script src="/resources/js/adaptive.js"></script>
 </head>
 <body>

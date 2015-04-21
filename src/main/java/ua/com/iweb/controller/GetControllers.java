@@ -3,19 +3,22 @@ package ua.com.iweb.controller;
 import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ua.com.iweb.config.DaoBeanConfig;
+import ua.com.iweb.dao.EventDAO;
+import ua.com.iweb.dao.GalleryDAO;
 import ua.com.iweb.dao.SliderDAO;
 import ua.com.iweb.dao.UserDAO;
+import ua.com.iweb.enteties.EventsEntity;
 import ua.com.iweb.enteties.UserEntity;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -72,42 +75,70 @@ public class GetControllers {
     public ModelAndView getleaderPage(HttpServletResponse response) throws IOException{
         return new ModelAndView("/indexSub/leaderPage");
     }
-    @RequestMapping(method = RequestMethod.GET, value="/events/calendar")
+    @RequestMapping(method = RequestMethod.GET, value="/calendar")
     public ModelAndView getCalendar(HttpServletResponse response) throws IOException{
         return new ModelAndView("/events/eventsCalendar");
     }
-    @RequestMapping(method = RequestMethod.GET, value="/events/competitions")
-    public ModelAndView getCompetitions(HttpServletResponse response) throws IOException{
-        return new ModelAndView("/events/eventsCompetitions");
-    }
-    @RequestMapping(method = RequestMethod.GET, value="/events/results")
+    @RequestMapping(method = RequestMethod.GET, value="/results")
     public ModelAndView getResults(HttpServletResponse response) throws IOException{
         return new ModelAndView("/events/eventsResults");
     }
-    @RequestMapping(method = RequestMethod.GET, value="/events/seminars")
-    public ModelAndView getSeminars(HttpServletResponse response) throws IOException{
-        return new ModelAndView("/events/eventsSeminars");
-    }
     @RequestMapping(method = RequestMethod.GET, value="/admin")
-    public ModelAndView getAdmin(HttpSession session,HttpServletResponse response) throws IOException{
-        String user = (String) session.getAttribute("user");
-        if((!"admin".equals(user)) || user.isEmpty() || user == null){
+    public ModelAndView getAdmin(@CookieValue("isAuth") String login) throws IOException{
+        if((!"admin".equals(login)) || login.isEmpty() || login == null){
             return new ModelAndView("redirect:/");
         }
         return new ModelAndView("/admin/startbootstrap-sb-admin-2-1.0.5/pages/main");
     }
     @RequestMapping(method = RequestMethod.GET, value="/admin/gallery")
-    public ModelAndView getAdminGallery(HttpServletResponse response) throws IOException{
+    public ModelAndView getAdminGallery(@CookieValue("isAuth") String login) throws IOException{
+        if((!"admin".equals(login)) || login.isEmpty() || login == null){
+            return new ModelAndView("redirect:/");
+        }
         return new ModelAndView("/admin/startbootstrap-sb-admin-2-1.0.5/pages/gallery");
     }
     @RequestMapping(method = RequestMethod.GET, value="/admin/slider")
-    public ModelAndView getAdminSlider(HttpServletResponse response) throws IOException{
+    public ModelAndView getAdminSlider(@CookieValue("isAuth") String login) throws IOException{
+        if((!"admin".equals(login)) || login.isEmpty() || login == null){
+            return new ModelAndView("redirect:/");
+        }
         return new ModelAndView("/admin/startbootstrap-sb-admin-2-1.0.5/pages/slider");
     }
     @RequestMapping(method = RequestMethod.GET, value="/admin/add_to_blog")
-    public ModelAndView getBlogPost(HttpServletResponse response) throws IOException{
+    public ModelAndView getBlogPost(@CookieValue("isAuth") String login) throws IOException{
+        if((!"admin".equals(login)) || login.isEmpty() || login == null){
+            return new ModelAndView("redirect:/");
+        }
         return new ModelAndView("/admin/startbootstrap-sb-admin-2-1.0.5/pages/addToBlog");
     }
+    @RequestMapping(method = RequestMethod.GET, value="/admin/calendar")
+    public ModelAndView getAdminCalendar(@CookieValue("isAuth") String login) throws IOException{
+        if((!"admin".equals(login)) || login.isEmpty() || login == null){
+            return new ModelAndView("redirect:/");
+        }
+        return new ModelAndView("/admin/startbootstrap-sb-admin-2-1.0.5/pages/calendar");
+    }
+    @RequestMapping(method = RequestMethod.GET, value ="/logout")
+    @ResponseStatus(HttpStatus.OK)
+    public ModelAndView logout(HttpSession session, HttpServletResponse response){
+        Cookie exitCookie = new Cookie("isAuth", "unregistered");
+        response.addCookie(exitCookie);
+        session.invalidate();
+        return new ModelAndView("redirect:/");
+    }
 
-
+    @RequestMapping(method= RequestMethod.POST, value ="/rest/calendar", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public @ResponseBody List<EventsEntity> getCalendarJson(@RequestBody String body){
+        System.out.println(body);
+        List<EventsEntity> events = null;
+        ApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
+        EventDAO eventDAO = (EventDAO) context.getBean("eventDAO");
+        try {
+            events = eventDAO.getAllEvents();
+        } catch (SQLException e) {
+            System.out.println("Can't read all events");
+        }
+        return events;
+    }
 }

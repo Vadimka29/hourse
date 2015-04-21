@@ -24,9 +24,12 @@
     <link rel="stylesheet" href="/resources/css/fontawesome.css">
     <link rel="stylesheet" href="/resources/css/addOrder.css">
     <script src="/resources/js/jquery.js"></script>
+    <%--порядок важен--%>
+    <script src="/resources/js/common.js"></script>
     <script src="/resources/js/locale.js"></script>
-    <script src="/resources/js/mainPage.js"></script>
     <script src="/resources/js/adaptive.js"></script>
+
+    <script src="/resources/js/mainPage.js"></script>
 </head>
 <body>
 <script>
@@ -115,7 +118,9 @@
                             %>
                         </ul>
                     </div>
-
+                    <div class="logoSmall second">
+                        <img src="/resources/img/cartSmall3.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>

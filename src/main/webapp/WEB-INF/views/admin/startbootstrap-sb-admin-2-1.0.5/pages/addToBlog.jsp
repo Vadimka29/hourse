@@ -339,7 +339,7 @@
                         <%--<ckfinder:setupCKEditor basePath="/resources/ckfinder/" editor="editor1" />--%>
                         <%--<ckeditor:replace replace="editor1" basePath="/resources/js/ckeditor/" />--%>
 
-                        <div id="adminAddToBlog" class="submit"><span class="locale">Добавить</span></div>
+                        <div id="adminAddToBlog" class="submit" onclick="window.location.href='/admin'"><span class="locale">Добавить</span></div>
                     </div>
                 </form>
             </div>

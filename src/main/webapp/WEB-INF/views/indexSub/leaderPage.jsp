@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="/resources/css/fontawesome.css">
     <link rel="stylesheet" href="/resources/css/gallery.css">
     <script src="/resources/js/gamma/modernizr.custom.70736.js"></script>
+    <%--порядок важен--%>
+    <script src="/resources/js/jquery.js"></script>
+    <script src="/resources/js/common.js"></script>
+    <script src="/resources/js/locale.js"></script>
     <script src="/resources/js/adaptive.js"></script>
 </head>
 <body>
@@ -27,7 +31,7 @@
                     <li>
                         <div class="row">
                         <div class="cols col-4 photo">
-                            <div style="background: url('http://deaenij3kiw8r.cloudfront.net/system/users/avatars/141380/original/production-b3612f96cc66fee631be82853dd2c316-man_bartlett_bw.jpg?1369799811') no-repeat; background-size: cover;"></div>
+                            <div style="background: url('/resources/img/leaders/IMG_1891.JPG') no-repeat; background-size: cover;"></div>
                         </div>
                         <div class="cols col-8 description">
                             <span>Президент Федерации</span> – Дорош Владимир Николаевич
@@ -41,7 +45,7 @@
                                 <span>Исполнительный директор</span>Ананко Евгений Николаевич +38067 2201028 -
                             </div>
                             <div class="cols col-4 photo">
-                                <div style="background: url('http://steezo.com/wp-content/uploads/2012/12/man-in-suit2.jpg') no-repeat; background-size: cover;"></div>
+                                <div style="background: url('http://americanmuslimconsumer.com/wp-content/uploads/2013/09/blank-user.jpg') no-repeat; background-size: cover;"></div>
                             </div>
                         </div>
                     </li>
@@ -49,7 +53,7 @@
                     <li>
                         <div class="row">
                             <div class="cols col-4 photo">
-                                <div style="background: url('http://img.thesun.co.uk/aidemitlum/archive/01510/tumour-man-3_1510528a.jpg') no-repeat; background-size: cover;"></div>
+                                <div style="background: url('http://americanmuslimconsumer.com/wp-content/uploads/2013/09/blank-user.jpg') no-repeat; background-size: cover;"></div>
                             </div>
                             <div class="cols col-8 description">
                                 <span>Вице президент</span> - Луцкевич Игорь Валентинович +380501969088
@@ -63,7 +67,7 @@
                                 <span>Вице президент</span> Деркач Анатолий Васильевич +380504040307 -
                             </div>
                             <div class="cols col-4 photo">
-                                <div style="background: url('http://static6.businessinsider.com/image/51e8024169bedd1f2c00002a/music-man-turned-tech-ceo-investor-money-wont-solve-a-startups-problems.jpg') no-repeat; background-size: cover;"></div>
+                                <div style="background: url('http://americanmuslimconsumer.com/wp-content/uploads/2013/09/blank-user.jpg') no-repeat; background-size: cover;"></div>
                             </div>
                         </div>
                     </li>
@@ -71,7 +75,7 @@
                     <li>
                         <div class="row">
                             <div class="cols col-4 photo">
-                                <div style="background: url('http://www.chartgantt.com/resources/Girl%20in%20office.jpg.opt413x332o0,0s413x332.jpg') no-repeat; background-size: cover;"></div>
+                                <div style="background: url('/resources/img/leaders/IMG_1893.JPG') no-repeat; background-size: cover;"></div>
                             </div>
                             <div class="cols col-8 description">
                                 <span>Председатель судейской коллегии</span> - Матвейчук Марина Владимировна +380679912367
@@ -85,7 +89,7 @@
                                 <span>Главный тренер</span> Луцкевич Игорь Валентинович +380501969088 -
                             </div>
                             <div class="cols col-4 photo">
-                                <div style="background: url('http://i.livescience.com/images/i/000/027/619/i02/shutterstock_103793357.jpg?1338411873') no-repeat; background-size: cover;"></div>
+                                <div style="background: url('http://americanmuslimconsumer.com/wp-content/uploads/2013/09/blank-user.jpg') no-repeat; background-size: cover;"></div>
                             </div>
                         </div>
                     </li>

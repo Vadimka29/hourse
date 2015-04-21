@@ -16,11 +16,12 @@
         <link rel="stylesheet" href="/resources/css/fontawesome.css">
         <link rel="stylesheet" href="/resources/css/addOrder.css">
         <script src="/resources/js/jquery.js"></script>
-        <script src="/resources/js/locale.js"></script>
         <script src="/resources/js/mainPage.js"></script><script src="/resources/js/locale.js"></script>
         <script src="/resources/js/ckeditor/ckeditor.js"></script>
         <script src="/resources/js/addOrder.js"></script>
-        <script type="text/javascript" src="/resources/ckfinder/ckfinder.js"></script>
+        <%--порядок важен--%>
+        <script src="/resources/js/common.js"></script>
+        <script src="/resources/js/locale.js"></script>
         <script src="/resources/js/adaptive.js"></script>
         <%--<script>--%>
             <%--$('document').ready(function(){--%>
@@ -70,12 +71,19 @@
                                     <div class="cols col-12">
 
                                         <h3 class="title"><span class="locale" data-name="add_order__order_description"></span></h3>
-
                                         <textarea id="editor1" name="editor1" rows="10" cols="80"></textarea>
-                                        <%--<ckfinder:setupCKEditor basePath="/resources/ckfinder/" editor="editor1" />--%>
-                                        <%--<ckeditor:replace replace="editor1" basePath="/resources/js/ckeditor/" />--%>
 
-                                        <div id="addOrder" class="submit"><span class="locale" data-name="add_button"></span></div>
+                                        <ckfinder:setupCKEditor basePath="/resources/js/ckfinder/" editor="editor1" />
+
+                                    <ckeditor:replace replace="editor1" basePath="/resources/js/ckeditor/" />
+
+
+                                        <%--<ckeditor:replace replace="editor1" basePath="/resources/js/ckeditor/" />--%>
+                                        <%--<ckfinder:setupCKEditor basePath="/resources/js/ckfinder/"/>--%>
+
+                                    <%--<ckfinder:setupCKEditor basePath="/resources/js/ckfinder/" />--%>
+
+                                        <div id="addOrder" class="submit" onclick="window.location.href='/sale'"><span class="locale" data-name="add_button"></span></div>
                                     </div>
                                 </form>
                             </div>
@@ -92,12 +100,12 @@
     </body>
     <script>
 
-        $(document).ready(function(){
-            CKEDITOR.replace( 'editor1', {
-                extraPlugins: 'image2,video,customfileupload',
-                extraAllowedContent: 'video[*]{*};source[*]{*}'
-            } );
-        });
+//        $(document).ready(function(){
+//            CKEDITOR.replace( 'editor1', {
+//                extraPlugins: 'image2,video,customfileupload',
+//                extraAllowedContent: 'video[*]{*};source[*]{*}'
+//            } );
+//        });
     </script>
 
 </html>

@@ -4,8 +4,10 @@
         <div class="cols col-8 centered">
             <div class="cols col-5 locale" data-name='header_hello'></div>
             <div class="cols col-7">
-                <div class="pointer" onclick="window.location.href='/contacts'">
-                    <i class="fa fa-map-marker"></i><span class="locale" data-name='header_location'></span>
+                <div class="pointer helloMsg"
+                     <%--onclick="window.location.href='/contacts'"--%>
+                        >
+
                 </div>
                 <%--<div>--%>
                     <%--<i class="fa fa-phone"></i> 8 800 888 88 88--%>
@@ -55,10 +57,10 @@
 
                 <li class="transition"><a class="transition"><span class="locale" data-name="menu_events"></span></a>
                     <ul>
-                        <li class="transition"><a href="/events/calendar" class="transition"><span class="locale" data-name="menu_events_calendar"></span></a></li>
-                        <li class="transition"><a href="/events/competitions" class="transition"><span class="locale" data-name="menu_events_competitions"></span></a></li>
-                        <li class="transition"><a href="/events/results" class="transition"><span class="locale" data-name="menu_events_results"></span></a></li>
-                        <li class="transition"><a href="/events/seminars" class="transition"><span class="locale" data-name="menu_events_seminars"></span></a></li>
+                        <li class="transition"><a href="/calendar" class="transition"><span class="locale" data-name="menu_events_calendar"></span></a></li>
+                        <li class="transition"><a href="/championships" class="transition"><span class="locale" data-name="menu_events_competitions"></span></a></li>
+                        <li class="transition"><a href="/results" class="transition"><span class="locale" data-name="menu_events_results"></span></a></li>
+                        <li class="transition"><a href="/seminars" class="transition"><span class="locale" data-name="menu_events_seminars"></span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -96,10 +98,10 @@
         <li class="head transition"><a class="transition"><span class="locale" data-name="menu_events"></span></a>
             <i class="fa fa-caret-down"></i>
             <ul>
-                <li class="transition"><a href="/events/calendar" class="transition"><span class="locale" data-name="menu_events_calendar"></span></a></li>
-                <li class="transition"><a href="/events/competitions" class="transition"><span class="locale" data-name="menu_events_competitions"></span></a></li>
-                <li class="transition"><a href="/events/results" class="transition"><span class="locale" data-name="menu_events_results"></span></a></li>
-                <li class="transition"><a href="/events/seminars" class="transition"><span class="locale" data-name="menu_events_seminars"></span></a></li>
+                <li class="transition"><a href="/calendar" class="transition"><span class="locale" data-name="menu_events_calendar"></span></a></li>
+                <li class="transition"><a href="/championships" class="transition"><span class="locale" data-name="menu_events_competitions"></span></a></li>
+                <li class="transition"><a href="/results" class="transition"><span class="locale" data-name="menu_events_results"></span></a></li>
+                <li class="transition"><a href="/seminars" class="transition"><span class="locale" data-name="menu_events_seminars"></span></a></li>
             </ul>
         </li>
 

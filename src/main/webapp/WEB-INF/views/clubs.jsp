@@ -13,6 +13,8 @@
         <script src="/resources/js/locale.js"></script>
 		<script src="/resources/js/mainPage.js"></script>
         <script src="/resources/js/jquery.js"></script>
+        <%--порядок важен--%>
+        <script src="/resources/js/common.js"></script>
         <script src="/resources/js/locale.js"></script>
         <script src="/resources/js/adaptive.js"></script>
 	</head>
@@ -140,6 +142,9 @@
 									</div>
 
 								</div>
+                                <div class="logoSmall second">
+                                    <img src="/resources/img/horseSmall2.png" alt="">
+                                </div>
 							</div>
 					</div>
 				</div>			

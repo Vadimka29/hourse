@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="/resources/css/fontawesome.css">
     <link rel="stylesheet" href="/resources/css/addOrder.css">
     <script src="/resources/js/jquery.js"></script>
+    <%--порядок важен--%>
+    <script src="/resources/js/common.js"></script>
     <script src="/resources/js/locale.js"></script>
     <script src="/resources/js/adaptive.js"></script>
 </head>
@@ -52,6 +54,7 @@
                             ApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
                             BlogDAO blogDAO = (BlogDAO) context.getBean("blogDAO");
                             String pageIndexString =(String) request.getAttribute("pageNumber");
+                            String type = (String) request.getAttribute("type");
                             System.out.println(pageIndexString);
                             Integer pageIndex = null;
                             if(pageIndexString != null && !pageIndexString.isEmpty()) {
@@ -59,7 +62,8 @@
                             } else {
                                 pageIndex = 1;
                             }
-                            List<BlogEntity> posts = (List<BlogEntity>) blogDAO.getPosts(pageIndex);
+                            System.out.println("PageIndex: " + pageIndex);
+                            List<BlogEntity> posts = (List<BlogEntity>) blogDAO.getPosts(pageIndex, type);
                             for(BlogEntity post: posts){
                         %>
                         <div class="cols col-12 item">
@@ -95,7 +99,7 @@
                     <div class="pageNav bottom">
                         <ul>
                             <%
-                                int pageCount = (int) Math.ceil(blogDAO.getCount()/10.0);
+                                int pageCount = (int) Math.ceil(blogDAO.getCount(type)/10.0);
                                 for(int i = 1; i <= pageCount; i++){
                             %>
                             <li><a href="/blog/<%=i%>"><%=i%></a></li>
@@ -103,6 +107,9 @@
                                 }
                             %>
                         </ul>
+                    </div>
+                    <div class="logoSmall second">
+                        <img src="/resources/img/chat.png" alt="">
                     </div>
                     </div>
                 </div>

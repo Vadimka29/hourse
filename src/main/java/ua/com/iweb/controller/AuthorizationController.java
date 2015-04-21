@@ -14,6 +14,7 @@ import ua.com.iweb.enteties.UserEntity;
 import ua.com.iweb.helpfull.Login;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -26,13 +27,13 @@ import java.sql.SQLException;
 @Controller
 public class AuthorizationController {
     @RequestMapping(method = RequestMethod.POST, value="/login_post")
-    public @ResponseBody String login(HttpServletResponse response,HttpSession session, @RequestBody String json) throws IOException {
+    public @ResponseBody String login(HttpServletRequest request, HttpServletResponse response,HttpSession session, @RequestBody String json) throws IOException {
         String data = URLDecoder.decode(json.substring(0,json.length()-1),"utf-8");
         ObjectMapper mapper = new ObjectMapper();
         Login login = mapper.readValue(data.getBytes(),Login.class);
         ApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
         UserDAO userDAO = (UserDAO) context.getBean("userDAO");
-        System.out.println(login.getPassword());
+        System.out.println("password: " + login.getPassword());
         final String unregistered = "unregistered";
         try {
             if (userDAO.authorizationCheck(login)) {
@@ -40,6 +41,8 @@ public class AuthorizationController {
                 System.out.println(session.getAttribute("user"));
                 Cookie cookie = new Cookie("isAuth", login.getLogin());
                 response.addCookie(cookie);
+                request.getSession(true).setAttribute("CKFinder_UserRole", "admin");
+                System.out.println("login: " + login.getLogin());
                 return login.getLogin();
             } else {
                 session.setAttribute("user", unregistered);

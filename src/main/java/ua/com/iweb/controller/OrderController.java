@@ -14,6 +14,7 @@ import ua.com.iweb.dao.OrderDAO;
 import ua.com.iweb.enteties.HourseOrderEntity;
 
 import java.io.IOException;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -29,8 +30,9 @@ public class OrderController {
     @ResponseStatus(HttpStatus.OK)
     public void makeOrder(@RequestBody final String json) throws IOException{
         String data = URLDecoder.decode(json.substring(0, json.length()), "utf-8");
+        System.out.println("json data:" + data);
         ObjectMapper mapper = new ObjectMapper();
-        HourseOrderEntity order = mapper.readValue(data.getBytes(), HourseOrderEntity.class);
+        HourseOrderEntity order = mapper.readValue(data.getBytes("UTF-8"), HourseOrderEntity.class);
         order.setOrderDate(new Date(new GregorianCalendar().getTimeInMillis()));
         ApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
         OrderDAO orderDAO = (OrderDAO) context.getBean("orderDAO");

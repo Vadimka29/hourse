@@ -2,6 +2,7 @@ package ua.com.iweb.dao;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import ua.com.iweb.enteties.EventsEntity;
 import ua.com.iweb.enteties.GalleryEntity;
 import ua.com.iweb.service.HibernateService;
 
@@ -89,6 +90,21 @@ public class GalleryDAO implements GalleryDAOInterface {
             session = HibernateService.getSession();
             Query q = session.createQuery("select count(*) from GalleryEntity");
             return ((Long) q.uniqueResult()).intValue();
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public void updatePhoto(GalleryEntity gallery) throws SQLException {
+        Session session = null;
+        try {
+            session = HibernateService.getSession();
+            session.getTransaction().begin();
+            session.update(gallery);
+            session.getTransaction().commit();
         } finally {
             if(session != null && session.isOpen()){
                 session.close();

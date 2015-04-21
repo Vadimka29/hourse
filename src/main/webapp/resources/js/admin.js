@@ -33,6 +33,7 @@ $('document').ready(function(){
         var thumbNailRegex = /<img.+?src=[\"'](.+?)[\"'].*?>/;
         data["messageBody"] = replaceHtmlEntities(CKEDITOR.instances.editor1.getData());
         data["messageTittle"] = $('#saleItemTitle').val();
+        data["messageType"] = "seminars";
         var thumbNail = thumbNailRegex.exec(data["messageBody"]);
         data["imageUrl"] = (thumbNail == null)? "http://www.pakistancardealers.com/img/no-image.jpg" : thumbNail[1];
         data["messageSmallDescription"] = replaceHtmlEntities(data["messageBody"]).stripTags().replace(/(<img (.*) \/>)/g, '').replace(/[\n\r]/g, ' ').replace(/\s{2,}/g, ' ').substr(0,250) + "...";
@@ -41,10 +42,10 @@ $('document').ready(function(){
         $.ajax({
             type: 'POST',
             url: '/add_post_to_blog',
-            data: data,
-            success: function(data){
-                window.location.href="/admin"
-            }
+            data: data
+            //success: function(data){
+            //    window.location.href="/admin"
+            //}
         });
     })
 
@@ -52,3 +53,6 @@ $('.addOrder.admin .item img').click(function(){
     $(this).css('opacity','0.4');
 });
 });
+
+
+

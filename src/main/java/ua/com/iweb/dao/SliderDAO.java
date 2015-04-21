@@ -43,4 +43,22 @@ public class SliderDAO implements SliderDAOInterface {
             }
         }
     }
+
+    @Override
+    public void deletePhoto(String name) throws SQLException {
+        Session session = null;
+        try {
+            session = HibernateService.getSession();
+            session.getTransaction().begin();
+            String hql = "DELETE SliderEntity where description = :desc";
+            Query q = session.createQuery(hql);
+            q.setString("desc", name );
+            q.executeUpdate();
+            session.getTransaction().commit();
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
 }

@@ -46,6 +46,7 @@ $('document').ready(function(){
             'register_button_register':'Зарегистрироваться',
 
             'header_hello': 'Добро пожаловать в Федерацию конного спорта Полтавы',
+            'header_helloMsg': 'Привет, ',
             'header_location': 'г.Полтава, Толстого 12',
 
             'menu_federation': 'Федерация',
@@ -71,6 +72,7 @@ $('document').ready(function(){
 
             'footer_copyright': '2014-2015, Федерация конного спорта Полтавы. All Rights Reserved',
             'footer_register': 'Войти/Зарегистрироваться',
+            'footer_logout': 'Выйти',
             'footer_email': 'info@gmail.com',
 
             'blog_title':'Блог',
@@ -80,6 +82,9 @@ $('document').ready(function(){
             'register_title':'Регистрация / Авторизация',
             'sale_new_title':'Добавление в Продажу',
             'sale_title__add_order':'[ Добавить объявление ]',
+            'calendar_title':'Календарь',
+            'championships_title':'Соревнования',
+            'seminars_title':'Семинары',
 
             'register_login':'Логин',
             'register_password':'Пароль',
@@ -101,7 +106,7 @@ $('document').ready(function(){
         _.registerLocale('ukr', {
             'language_sign':'UKR',
             'hello_text':'Вітаємо',
-            'logo_src':'/resources/img/logoFull.png',
+            'logo_src':'/resources/img/logo_ukr.png',
             'add_button':'Додати',
             'read_more_button':'Докладніше',
             'single_page_title': 'Запис',
@@ -110,13 +115,14 @@ $('document').ready(function(){
 
 
             'header_hello': 'Вас вітає Федерація кінного спорту Полтави',
+            'header_helloMsg': 'Привіт, ',
             'header_location': 'м.Полтава, Толстого 12',
 
             'menu_federation': 'Федерація',
             'menu_federation_about': 'Про федерацію',
             'menu_federation_sponsors': 'Спонсори',
             'menu_federation_contacts': 'Контакти',
-            'menu_federation_leaders': 'Офіційні представники',
+            'menu_federation_leaders': 'Офіційні особи',
             'menu_clubs': 'Кінні клуби',
             'menu_blog': 'Блог',
             'menu_gallery': 'Галерея',
@@ -135,6 +141,7 @@ $('document').ready(function(){
 
             'footer_copyright': '2014-2015, Федерація кінного спорту Полтави. All Rights Reserved',
             'footer_register': 'Увійти/Зареєструватися',
+            'footer_logout': 'Вихід',
             'footer_email': 'info@gmail.com',
 
 
@@ -145,6 +152,9 @@ $('document').ready(function(){
             'register_title':'Реєстрація / Авторизація',
             'sale_new_title':'Додавання до продажу',
             'sale_title__add_order':'[ Додати оголошення ]',
+            'calendar_title':'Календар',
+            'championships_title':'Змагання',
+            'seminars_title':'Семінари',
 
             'register_login':'Логін',
             'register_password':'Пароль',
@@ -166,7 +176,7 @@ $('document').ready(function(){
         _.registerLocale('eng', {
             'language_sign':'ENG',
             'hello_text':'Welcome',
-            'logo_src':'/resources/img/logoFull.png',
+            'logo_src':'/resources/img/logo_eng.png',
             'add_button':'Add',
             'read_more_button':'Read more',
             'single_page_title': 'Record',
@@ -175,6 +185,7 @@ $('document').ready(function(){
 
 
             'header_hello': 'Welcome to the Poltava sport horse Federation',
+            'header_helloMsg': 'Hello, ',
             'header_location': 'Poltava c., Tolstogo 12',
 
             'menu_federation': 'Federation',
@@ -199,6 +210,7 @@ $('document').ready(function(){
 
             'footer_copyright': '2014-2015, Poltava sport horse Federation. All Rights Reserved',
             'footer_register': 'Sign in/Sign up',
+            'footer_logout': 'Log Out',
             'footer_email': 'info@gmail.com',
 
             'blog_title':'Blog',
@@ -208,6 +220,9 @@ $('document').ready(function(){
             'register_title':'Sign in / Sign up',
             'sale_new_title':'Adding sale',
             'sale_title__add_order':'[ Add order ]',
+            'calendar_title':'Calendar',
+            'championships_title':'Championships',
+            'seminars_title':'Seminars',
 
 
             'register_login':'Login',

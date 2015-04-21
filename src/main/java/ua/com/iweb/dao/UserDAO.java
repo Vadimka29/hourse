@@ -32,6 +32,8 @@ public class UserDAO implements UserDAOInterface {
             query.setParameter("login", formData.getLogin());
             List<UserEntity> res = query.list();
             user = (res.size() == 1) ? res.get(0) : null;
+//            ломало авторизацию
+            System.out.println("User " + user);
             if(user == null) {
                 System.out.println("There is no such user!");
                 return false;

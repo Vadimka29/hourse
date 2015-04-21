@@ -32,7 +32,7 @@ public class BlogController {
     public void makeOrder(@RequestBody final String json) throws IOException {
         String data = URLDecoder.decode(json.substring(0, json.length()), "utf-8");
         ObjectMapper mapper = new ObjectMapper();
-        BlogEntity post = mapper.readValue(data.getBytes(), BlogEntity.class);
+        BlogEntity post = mapper.readValue(data.getBytes("UTF-8"), BlogEntity.class);
         post.setMessageDate(new Date(new GregorianCalendar().getTimeInMillis()));
         ApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
         BlogDAO blogDAO = (BlogDAO) context.getBean("blogDAO");

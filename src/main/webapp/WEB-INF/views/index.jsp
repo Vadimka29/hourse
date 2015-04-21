@@ -16,13 +16,15 @@
         <link href='http://fonts.googleapis.com/css?family=Exo+2:400,500italic,100,300,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
         <script src="/resources/js/jquery.js"></script>
-		<script src="/resources/js/adaptive.js"></script>
 
 
 		<script src="/resources/js/Flickerplate/js/min/jquery-v1.10.2.min.js"></script>
 	    <script src="/resources/js/Flickerplate/js/min/modernizr-custom-v2.7.1.min.js"></script>
 	    <script src="/resources/js/Flickerplate/js/min/hammer-v2.0.3.min.js"></script>
+        <%--порядок важен--%>
+        <script src="/resources/js/common.js"></script>
         <script src="/resources/js/locale.js"></script>
+        <script src="/resources/js/adaptive.js"></script>
 
 	    <!-- // Flickerplate -->
 	    <script src="/resources/js/Flickerplate/js/flickerplate.js"></script>
@@ -35,13 +37,15 @@
 					<div class="header">
 						<div class="cols col-8 centered">
 							<div class="cols col-5 locale" data-name='header_hello'></div>
-							<div class="cols col-7 pointer">
-								<div onclick="window.location.href='/contacts'">
-									<i class="fa fa-map-marker"></i><span class="locale" data-name='header_location'></span>
-								</div>
-								<%--<div>--%>
-									<%--<i class="fa fa-phone"></i> 8 800 888 88 88--%>
-								<%--</div>--%>
+							<div class="cols col-7 pointer ">
+                                <div class="pointer helloMsg"
+                                <%--onclick="window.location.href='/contacts'"--%>
+                                        >
+
+                                </div>
+                                <%--<div>--%>
+                                <%--<i class="fa fa-phone"></i> 8 800 888 88 88--%>
+                                <%--</div>--%>
                                 <div class="localeButton">
                                     <span class="locale" data-name="language_sign"></span>
                                 </div>
@@ -84,10 +88,10 @@
                                 <li class="head transition"><a class="transition"><span class="locale" data-name="menu_events"></span></a>
                                     <i class="fa fa-caret-down"></i>
                                     <ul>
-                                        <li class="transition"><a href="/events/calendar" class="transition"><span class="locale" data-name="menu_events_calendar"></span></a></li>
-                                        <li class="transition"><a href="/events/competitions" class="transition"><span class="locale" data-name="menu_events_competitions"></span></a></li>
-                                        <li class="transition"><a href="/events/results" class="transition"><span class="locale" data-name="menu_events_results"></span></a></li>
-                                        <li class="transition"><a href="/events/seminars" class="transition"><span class="locale" data-name="menu_events_seminars"></span></a></li>
+                                        <li class="transition"><a href="/calendar" class="transition"><span class="locale" data-name="menu_events_calendar"></span></a></li>
+                                        <li class="transition"><a href="/championships" class="transition"><span class="locale" data-name="menu_events_competitions"></span></a></li>
+                                        <li class="transition"><a href="/results" class="transition"><span class="locale" data-name="menu_events_results"></span></a></li>
+                                        <li class="transition"><a href="/seminars" class="transition"><span class="locale" data-name="menu_events_seminars"></span></a></li>
                                     </ul>
                                 </li>
 
@@ -126,10 +130,10 @@
                             </li>
                             <li class="transition"><a  class="transition"><span class="locale" data-name="menu_events"></span></a>
                                 <ul>
-                                    <li class="transition"><a href="/events/calendar" class="transition"><span class="locale" data-name="menu_events_calendar"></span></a></li>
-                                    <li class="transition"><a href="/events/competitions" class="transition"><span class="locale" data-name="menu_events_competitions"></span></a></li>
-                                    <li class="transition"><a href="/events/results" class="transition"><span class="locale" data-name="menu_events_results"></span></a></li>
-                                    <li class="transition"><a href="/events/seminars" class="transition"><span class="locale" data-name="menu_events_seminars"></span></a></li>
+                                    <li class="transition"><a href="/calendar" class="transition"><span class="locale" data-name="menu_events_calendar"></span></a></li>
+                                    <li class="transition"><a href="/championships" class="transition"><span class="locale" data-name="menu_events_competitions"></span></a></li>
+                                    <li class="transition"><a href="/results" class="transition"><span class="locale" data-name="menu_events_results"></span></a></li>
+                                    <li class="transition"><a href="/seminars" class="transition"><span class="locale" data-name="menu_events_seminars"></span></a></li>
                                 </ul>
                             </li>
                         </ul>

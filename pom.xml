@@ -11,7 +11,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<java.version>1.6</java.version>
+		<java.version>1.7</java.version>
 		<spring.version>3.1.0.RELEASE</spring.version>
 		<cglib.version>2.2.2</cglib.version>
         <jackson.version>1.9.13</jackson.version>
@@ -74,6 +74,17 @@
             <artifactId>hibernate-core</artifactId>
             <version>4.3.8.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+
 
         <!--Mysql driver -->
         <dependency>
@@ -103,23 +114,17 @@
             <artifactId>ckeditor-java-core</artifactId>
             <version>3.5.3</version>
         </dependency>
-        <dependency>
-            <groupId>net.fckeditor</groupId>
-            <artifactId>java-core</artifactId>
-            <version>2.4</version>
-        </dependency>
-
 
     </dependencies>
 
-	<repositories>
-		<repository>
-			<id>springsource-milestones</id>
-			<name>SpringSource Milestones Proxy</name>
-			<url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
-		</repository>
+	<!--<repositories>-->
+		<!--<repository>-->
+			<!--<id>springsource-milestones</id>-->
+			<!--<name>SpringSource Milestones Proxy</name>-->
+			<!--<url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>-->
+		<!--</repository>-->
 
-	</repositories>
+	<!--</repositories>-->
 
 	<build>
 		<finalName>hourse</finalName>
@@ -133,6 +138,17 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>http://fksp.com.ua/manager/text</url>
+                    <server>TomcatServer</server>
+                    <path>/ROOT</path>
+                    <update>true</update>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 </project>

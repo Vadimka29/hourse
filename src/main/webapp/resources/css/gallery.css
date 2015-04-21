@@ -2,7 +2,8 @@
 	padding:0;
 }
 .photoGallery{
-	padding: 3em 1em 1em;
+	padding: 2em 1em 2em;
+    height: auto;overflow: hidden;
 }
 .horizontalLine{
 	position: relative;
@@ -10,4 +11,208 @@
 	width: 100%;
 	height: 2px;
 	background:#192A31; 
+}
+
+
+.photoGallery .item{
+    display: inline-block;
+    margin: 1%;
+    width: 30.333333333%;
+    padding-top: 25%;
+    cursor: pointer;
+    position: relative;
+    float: left;
+
+}
+
+.photoGallery .item .description{
+    opacity: 0;
+    height: 90%;
+    width: 90%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin:auto;
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-transition: all .6s ease .15s;
+    -moz-transition: all .6s ease .15s;
+    -o-transition: all .6s ease .15s;
+    -ms-transition: all .6s ease .15s;
+    transition: all .6s ease .15s;
+
+}
+.photoGallery .item:hover  .description{
+    opacity: 1;
+}
+.photoGallery .item .description div{
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.photoGallery .item .description div span{
+    display: table-cell;
+    vertical-align: middle;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    line-height: 1.5em;
+}
+
+/*POPUP*/
+.popUp
+{
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+    margin: auto;
+
+    text-align: center;
+
+    background: rgba(34, 34, 34, .6);
+}
+.popUp .imgWrapper{
+    width: 90%;
+    height: 90%;
+    position: relative;
+
+}
+.popUp .descriptionWrapper{
+    width: 90%;
+    height: 10%;
+    color: #fff;
+    font-size: 1.2em;
+}
+.popUp  img
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
+    max-width: 80%;
+    max-height: 90%;
+    border:0.5em solid rgba(255,255,255,0.3);
+}
+/*.popUp div img
+{
+    max-width: 100%;
+}*/
+.popUp  .popUpCloseButton
+{
+    font-size: 1.8em;
+
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+
+    padding: 1em 2em;
+
+    cursor: pointer;
+
+    color: #fff;
+    opacity: 0.6
+}
+.popUp  .popUpCloseButton:hover{
+    opacity: 1;
+}
+.blured
+{
+    -webkit-filter: blur(2px);
+}
+.popUpMsg
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+.popUpMsg p
+{
+    font-size: 2.5em;
+    line-height: 1.5em;
+
+    /*margin-top: 15%;*/
+
+    color: #fff;
+}
+.popUpMsg .orderButton
+{
+    font-size: .9em;
+
+    margin-top: 1em;
+}
+
+.popUp .arrow{
+    opacity: 0.6;
+    cursor: pointer;
+    z-index: 99999;
+}
+.popUp .arrow:hover{
+    opacity: 1;
+}
+.popUp .leftArrow{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5%;
+    display: table;
+}
+.popUp .leftArrow div{
+    height: auto;
+    margin: auto;
+    display: table-cell;
+    vertical-align: middle;
+
+}
+.popUp .leftArrow div:after{
+    color: #fff;
+    content:"\2770";
+    vertical-align: center;
+    font-size: 3em;
+    /*padding-top: 50%;*/
+
+}
+
+
+.popUp .rightArrow{
+    position: absolute;
+    right: 1%;
+    top: 0;
+    height: 100%;
+    width: 5%;
+    display: table;
+}
+.popUp .rightArrow div{
+    height: auto;
+    margin: auto;
+    display: table-cell;
+    vertical-align: middle;
+
+}
+.popUp .rightArrow div:after{
+    color: #fff;
+    content:"\2771";
+    vertical-align: center;
+    font-size: 3em;
+    /*padding-top: 50%;*/
 }

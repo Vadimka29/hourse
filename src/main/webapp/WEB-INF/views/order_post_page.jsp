@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="/resources/css/gallery.css">
     <link rel="stylesheet" href="/resources/js/ckeditor/contents.css">
     <script src="/resources/js/gamma/modernizr.custom.70736.js"></script>
+    <%--порядок важен--%>
+    <script src="/resources/js/common.js"></script>
+    <script src="/resources/js/locale.js"></script>
     <script src="/resources/js/adaptive.js"></script>
 </head>
 <body>
@@ -35,6 +38,9 @@
                     </div>
                     <p class="saleTitle"><%=orderPost.getOrderTitle()%></p>
                     <div class="saleBody "><%=orderPost.getOrderDescription()%></div>
+                    <div class="logoSmall second">
+                        <img src="/resources/img/cartSmall3.png" alt="">
+                    </div>
                 </div>
                 <%
                     }

@@ -6,8 +6,16 @@
     font-family: "Myriad"; /* Гарнитура шрифта */
     src: url(../fonts/MyriadPro/MyriadPro-Regular.otf); /* Путь к файлу со шрифтом */
 }
+/*ckfinder скрываем кнопку выбора на сервере*/
+#cke_76_label{
+    display: none;
+}
 
-
+.inprocessMsg{
+    margin-top: 5em;
+    margin-bottom: 5em;
+    font-size: 2em;
+}
 * {
     margin: 0;
     padding: 0;
@@ -120,7 +128,106 @@ ul{
     -o-transition: all 0.2s ease-out 0.2s;
     transition: all 0.2s linear 0.2s;
 }
+/*CALENDAR STARS*/
+/** { font-size: 12px; font-family: Helvetica;}*/
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 
+#calendar{
+    max-width: 90%;
+    margin: 0 auto;
+}
+/*CALENDAR ENDS*/
+/*POPUP STARTS*/
+.popUp
+{
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+    margin: auto;
+
+    text-align: center;
+
+    background: rgba(34, 34, 34, .73);
+}
+
+.popUp .popUpWrapper
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+.popUp div img
+{
+    max-width: 100%;
+}
+.popUp  .popUpCloseButton
+{
+    font-size: 1.8em;
+
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+
+    padding: 1em 2em;
+
+    cursor: pointer;
+
+    color: #fff;
+}
+.blured
+{
+    -webkit-filter: blur(2px);
+}
+.popUpMsg
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+.popUpMsg p
+{
+    font-size: 2.2em;
+    line-height: 1.2em;
+
+    /*margin-top: 15%;*/
+
+    color: #fff;
+}
+.popUpMsg .orderButton
+{
+    font-size: .9em;
+
+    margin-top: 1em;
+}
+
+/*POPUP ENDS*/
 /*MAIN PAGE*/
 .pointer{
     cursor: pointer;
@@ -191,6 +298,7 @@ body{
     text-transform: uppercase;
     color: #fff;
     font-size: 0.8em;
+    font-weight: 700;
     padding:0.6em 2em 0.6em 2em;
     text-align: center;
 }
@@ -296,11 +404,11 @@ body{
 
 
 .mainBlockWrapper{
-    padding: 4em 0 4em 0;
+    padding: 4em 0 8em 0;
 }
 .mainBlock{
     border-left:2px solid #192A31;
-    border-bottom:2px solid #192A31;
+    /*border-bottom:2px solid #192A31;*/
     width: 100%;
     padding: 1em;
     position: relative;
@@ -311,6 +419,22 @@ body{
     position: absolute;
     left: -1.55em;
     top: -3.5em;
+    max-width: 100%;
+    border: 2px solid #192a31;
+    width: 3em;
+    height: 3em;
+    -mos-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    padding:0.3em 0 0 0;
+}
+.mainBlock .logoSmall.second{
+    position: absolute;
+    left: -1.55em;
+    top: auto;
+    bottom: -3.5em;
     max-width: 100%;
     border: 2px solid #192a31;
     width: 3em;
@@ -397,7 +521,8 @@ body{
     color: #fff;
 }
 .sale .addNewSale{
-    display: inline-block;
+    /*display: inline-block;*/
+    display: none;
     margin-left: 2em;
     cursor: pointer;
 }
@@ -519,14 +644,18 @@ body{
 }
 .pageNav.bottom{
     width: 100%;
-    position: relative;
+    position: absolute;
     height: 3em;
+    bottom: -3.4em;
+    left: 3.2em;
     /*padding: 1em;*/
 }
 .pageNav.bottom ul{
     position: absolute;
     right: 0;
     bottom: 0.5em;
+    left: 0;
+    text-align: left;
 }
 .pageNav ul li{
     cursor: pointer;
@@ -536,6 +665,7 @@ body{
     height: 1.5em;
     font-size: 0.9em;
     font-weight: bold;
+    text-align: center;
 
 }
 .pageNav ul li:hover{
@@ -550,8 +680,11 @@ body{
     width: 100%;
     height: 100%;
     vertical-align: middle;
-    padding-bottom: 1em;
+    /*padding-bottom: 1em;*/
+    position: relative;
+    top: -0.2em;
 }
+
 .pageNav ul li.active{
     background:  #192A31;
     color: #fff;
@@ -573,10 +706,11 @@ body{
 }
 .salePage .saleBody img{
     max-width: 100%;
+    height: auto !important;
 }
 /*LEADER PAGE*/
 .leaderPage{
-    padding: 2em 3em 2em 4em;
+    padding: 2em 3em 6em 4em;
 }
 .leaderPage ul{
     list-style: none;
@@ -751,8 +885,27 @@ body{
     max-width: 100%;
     padding: 0 3em 0 3em;
 }
+.addOrder.admin .item{
+    margin-bottom: 2em;
+    display: inline-block;
+}
+.addOrder.admin .item{
+    margin-top: 2em;
+}
+.addOrder.admin .item:first-child{
+    margin-top: 0;
+}
+.addOrder.admin .item .form-group .control-label{
+    float: left;
+    font-size: 1.15em !important;
+    /*margin-left: 1em !important;*/
+    margin:1em 0 0 0;
+}
+.addOrder.admin .item .form-group:first-child .control-label{
+    margin:0 0 0 0;
+}
 .addOrder.admin .item img{
-    max-width: 31.333333333%;
+    max-width: 95%;
     float: left;
     margin: 0.5%;
     overflow: hidden;

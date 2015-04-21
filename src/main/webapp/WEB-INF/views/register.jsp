@@ -11,9 +11,11 @@
 		<link rel="stylesheet" href="/resources/css/mainsheet.css">
 		<link rel="stylesheet" href="/resources/css/fontawesome.css">
 		<script src="/resources/js/jquery.js"></script>
-        <script src="/resources/js/locale.js"></script>
 		<script src="/resources/js/mainPage.js"></script>
 		<script src="/resources/js/autorization.js"></script>
+        <%--порядок важен--%>
+        <script src="/resources/js/common.js"></script>
+        <script src="/resources/js/locale.js"></script>
         <script src="/resources/js/adaptive.js"></script>
 
 	</head>
@@ -50,8 +52,11 @@
 								<input type="password" id="registerActionPassword">
                                     <h3 class="title"><span class="locale" data-name="register_double_password"></span></h3>
                                 <input type="password" id="registerActionPassword2">
-									<div class="submit registerAction transition" onclick="window.location.href='/'"><span class="locale" data-name="register_button_register"></span></div>
+									<div class="submit registerAction transition"><span class="locale" data-name="register_button_register"></span></div>
 								</div>
+                                <div class="logoSmall second">
+                                    <img src="/resources/img/newUser.png" alt="">
+                                </div>
 							</div>
 					</div>
 				</div>			

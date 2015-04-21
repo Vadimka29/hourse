@@ -12,6 +12,9 @@
         <script src="/resources/js/jquery.js"></script>
         <script src="/resources/js/ckeditor/ckeditor.js"></script>
         <script src="/resources/js/mainPage.js"></script>
+        <%--порядок важен--%>
+        <script src="/resources/js/common.js"></script>
+        <script src="/resources/js/locale.js"></script>
         <script src="/resources/js/adaptive.js"></script>
     </head>
     <body>

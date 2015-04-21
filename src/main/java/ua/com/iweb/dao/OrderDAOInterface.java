@@ -9,10 +9,10 @@ import java.util.List;
  * Created by root on 15.03.15.
  */
 public interface OrderDAOInterface {
-    public boolean addOrder(HourseOrderEntity entity) throws SQLException;
-    public List<HourseOrderEntity> getOrders(int countIndex) throws SQLException;
-    public List<HourseOrderEntity> getByType(String type, int countIndex) throws SQLException;
-    public int getOrderCount() throws SQLException;
-    public int getOrderCountByType(String type) throws SQLException;
-    public HourseOrderEntity getOrderById(int id) throws SQLException;
+    boolean addOrder(HourseOrderEntity entity) throws SQLException;
+    List<HourseOrderEntity> getOrders(int countIndex) throws SQLException;
+    List<HourseOrderEntity> getByType(String type, int countIndex) throws SQLException;
+    int getOrderCount() throws SQLException;
+    int getOrderCountByType(String type) throws SQLException;
+    HourseOrderEntity getOrderById(int id) throws SQLException;
 }

@@ -37,4 +37,10 @@ public class DaoBeanConfig {
         SliderDAO sliderDAO = new SliderDAO();
         return sliderDAO;
     }
+    @Bean(name="eventDAO")
+    @Scope("singleton")
+    public EventDAO getEventDAO(){
+        EventDAO eventDAO = new EventDAO();
+        return eventDAO;
+    }
 }
