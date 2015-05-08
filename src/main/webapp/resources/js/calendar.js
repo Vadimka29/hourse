@@ -13,9 +13,7 @@ $(document).ready(function() {
         url: "/rest/calendar",
         type: "POST",
         async:false,
-//                                    data: {
-//                                        op: 'source'
-//                                    },
+
         success: function (data) {
 
             var regex = /([-+0-9]{6,})/g
@@ -44,57 +42,42 @@ $(document).ready(function() {
                 var timestampValue = parseInt(input);
                 var dt = new Date(timestampValue);
                 return  dt.getFullYear() + '-' + pad(dt.getMonth()+1, 2) + '-' + pad(dt.getDate(), 2) + ' ' + pad(dt.getHours(), 2) + ':' + pad(dt.getMinutes(), 2) + ':' + pad(dt.getSeconds(), 2);
-                // document.getElementById('outputLocal').innerHTML = dt.toLocaleString();
-                // document.getElementById('outputUTC').innerHTML = dt.toUTCString();
             }
             dataEvents = buf.replace(/"type"/g,'"title"');
             console.log(typeof(dataEvents));
-
-            //console.log(JSON.parse(dataEvents));
-            //dataEvents = data.toString().replace("type", "title");
         }
 
     });
 
 
 
-    /* кнопка добавления события */
     $('#add_event_button').button().click(function(){
         formOpen('add');
     });
-    /** функция очистки формы */
     function emptyForm() {
         event_start.val("");
         event_end.val("");
         event_type.val("");
         event_id.val("");
     }
-    /* режимы открытия формы */
     function formOpen(mode) {
         if(mode == 'add') {
-            /* скрываем кнопки Удалить, Изменить и отображаем Добавить*/
             $('#add').show();
             $('#edit').hide();
             $("#delete").button("option", "disabled", true);
         }
         else if(mode == 'edit') {
-            /* скрываем кнопку Добавить, отображаем Изменить и Удалить*/
             $('#edit').show();
             $('#add').hide();
             $("#delete").button("option", "disabled", false);
         }else if (mode == 'show') {
-            /* скрываем кнопку Добавить, отображаем Изменить и Удалить*/
             $('#edit').hide();
             $('#add').hide();
             $("#delete").hide();
         }
         form.dialog('open');
     }
-    /* инициализируем Datetimepicker */
-    //event_start.datetimepicker({hourGrid: 4, minuteGrid: 10, dateFormat: 'mm/dd/yy'});
-    //event_end.datetimepicker({hourGrid: 4, minuteGrid: 10, dateFormat: 'mm/dd/yy'});
 
-    /* инициализируем FullCalendar */
     calendar.fullCalendar({
         firstDay: 1,
         height: 500,
@@ -102,7 +85,6 @@ $(document).ready(function() {
         header: {
             left: 'prev,next today',
             center: 'title',
-            //right: 'month,agendaWeek,agendaDay'
             right: ''
         },
         monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
@@ -121,14 +103,7 @@ $(document).ready(function() {
         },
         /* формат времени выводимый перед названием события*/
         timeFormat: 'H:mm',
-        /* обработчик события клика по определенному дню */
-        //dayClick: function(date, allDay, jsEvent, view) {
-        //    var newDate = $.fullCalendar.formatDate(date, format);
-        //    event_start.val(newDate);
-        //    event_end.val(newDate);
-        //    formOpen('show');
-        //},
-        ///* обработчик кликак по событияю */
+        
         eventClick: function(calEvent, jsEvent, view) {
             event_id.val(calEvent.id);
             event_type.val(calEvent.title);
@@ -137,11 +112,9 @@ $(document).ready(function() {
             formOpen('show');
         },
 
-        /* источник записей */
         events:JSON.parse(dataEvents)
     });
 
-    /* обработчик формы добавления */
     form.dialog({
         autoOpen: false,
         buttons: [{
