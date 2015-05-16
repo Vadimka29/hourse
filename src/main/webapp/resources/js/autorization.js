@@ -50,7 +50,8 @@ $('document').ready(function(){
             url: 'login_post',
             data: data,
             success: function(data){
-                window.location.href="/";
+                console.log(data);
+                //window.location.href="/";
             }
         });
     });

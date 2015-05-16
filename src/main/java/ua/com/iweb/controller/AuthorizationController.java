@@ -3,11 +3,9 @@ package ua.com.iweb.controller;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ua.com.iweb.config.DaoBeanConfig;
 import ua.com.iweb.dao.UserDAO;
 import ua.com.iweb.enteties.UserEntity;
@@ -26,6 +24,7 @@ import java.sql.SQLException;
  */
 @Controller
 public class AuthorizationController {
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.POST, value="/login_post")
     public @ResponseBody String login(HttpServletRequest request, HttpServletResponse response,HttpSession session, @RequestBody String json) throws IOException {
         String data = URLDecoder.decode(json.substring(0,json.length()-1),"utf-8");
@@ -40,21 +39,23 @@ public class AuthorizationController {
                 session.setAttribute("user", login.getLogin());
                 System.out.println(session.getAttribute("user"));
                 Cookie cookie = new Cookie("isAuth", login.getLogin());
+                System.out.println("cookie: " + cookie.getValue());
                 response.addCookie(cookie);
                 request.getSession(true).setAttribute("CKFinder_UserRole", "admin");
                 System.out.println("login: " + login.getLogin());
-                return login.getLogin();
+                return "true";
             } else {
                 session.setAttribute("user", unregistered);
                 System.out.println(session.getAttribute("user"));
                 Cookie cookie = new Cookie("isAuth",unregistered);
+                System.out.println("cookie: " + cookie.getValue());
                 response.addCookie(cookie);
-                return unregistered;
+                return "false";
             }
         } catch (SQLException e){
             session.setAttribute("user", unregistered);
             System.out.println(session.getAttribute("user"));
-            return unregistered;
+            return "false";
         }
     }
 

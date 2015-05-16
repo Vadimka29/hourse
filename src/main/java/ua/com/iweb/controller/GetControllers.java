@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.apache.commons.io.IOUtils;
 import ua.com.iweb.config.DaoBeanConfig;
+import ua.com.iweb.config.ServicePath;
 import ua.com.iweb.dao.EventDAO;
 import ua.com.iweb.dao.GalleryDAO;
 import ua.com.iweb.dao.SliderDAO;
@@ -18,11 +20,17 @@ import ua.com.iweb.dao.UserDAO;
 import ua.com.iweb.enteties.EventsEntity;
 import ua.com.iweb.enteties.UserEntity;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -141,4 +149,26 @@ public class GetControllers {
         }
         return events;
     }
+    @RequestMapping(value = "/get-gallery")
+    public void getImageFromGallery(HttpServletResponse response, HttpServletRequest request) throws IOException{
+        String imageName = request.getParameter("name");
+        if(imageName == null){
+            return;
+        }
+        System.out.println("name: " + imageName);
+        File image = new File(ServicePath.PATH_TO_GALLERY_IMAGES + "/" + imageName);
+        byte[] byteImage = IOUtils.toByteArray(new FileInputStream(image));
+        response.getOutputStream().write(byteImage);
+    }
+    @RequestMapping(value = "/get-slider")
+    public void getImageFromSlider(HttpServletResponse response,HttpServletRequest request) throws IOException{
+        String imageName = request.getParameter("name");
+        if(imageName == null){
+            return;
+        }
+        File image = new File(ServicePath.PATH_TO_SLIDER_IMAGES + "/" + imageName);
+        byte[] byteImage = IOUtils.toByteArray(new FileInputStream(image));
+        response.getOutputStream().write(byteImage);
+    }
+
 }

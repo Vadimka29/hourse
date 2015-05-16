@@ -35,7 +35,7 @@
 									<input type="text" id="loginActionLogin">
 										<h3 class="title"><span class="locale" data-name="register_password"></span></h3>
 									<input type="password" id="loginActionPassword">
-									<div class="submit loginAction transition" onclick="window.location.href='/'"><span class="locale" data-name="register_button_login"></span></div>
+									<div class="submit loginAction transition"><span class="locale" data-name="register_button_login"></span></div>
 								</div>
 
 								<div class="row registerAction">
