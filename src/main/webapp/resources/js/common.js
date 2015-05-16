@@ -5,19 +5,23 @@ $(document).ready(function () {
         ));
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
-    if (getCookie("isAuth") != "unregistered" && getCookie("isAuth") != undefined){
-        console.log(getCookie("isAuth"));
-        $('.registrationLink').attr('href','/logout');
-        $('.registrationLink').find('.locale').attr('data-name','footer_logout');
-        $('.addNewSale').css('display','inline-block');
+    function test(){
+        alert('lalka');
+        if (getCookie("isAuth") != "unregistered" && getCookie("isAuth") != undefined){
+            console.log(getCookie("isAuth"));
+            $('.registrationLink').attr('href','/logout');
+            $('.registrationLink').find('.locale').attr('data-name','footer_logout');
+            $('.addNewSale').css('display','inline-block');
 
-        $(".helloMsg").html('<i class="fa fa-user"></i><span class="locale" data-name="header_helloMsg"></span>' + getCookie("isAuth"));
+            $(".helloMsg").html('<i class="fa fa-user"></i><span class="locale" data-name="header_helloMsg"></span>' + getCookie("isAuth"));
 
-    }else{
-        $(".helloMsg").css('display', 'none');
-        $('.addNewSale').css('display','none');
+        }else{
+            $(".helloMsg").css('display', 'none');
+            $('.addNewSale').css('display','none');
+        }
     }
 
+    //setTimeout(test,5000);
 });
 
 $('.cke_dialog .cke_browser_webkit .cke_ltr').ready(function(){

@@ -152,7 +152,7 @@
                                         List<SliderEntity> sliderPhotos = (List<SliderEntity>) request.getAttribute("sliderPhotos");
                                         for(SliderEntity entity: sliderPhotos){
                                     %>
-                                    <li data-background="/resources/uploads/slider/<%=entity.getDescription()%>" style="background:url('/resources/uploads/slider/<%=entity.getDescription()%>'); background-size:cover;"
+                                    <li data-background="/get-slider?name=<%=entity.getDescription()%>" style="background:url('/resources/uploads/slider/<%=entity.getDescription()%>'); background-size:cover;"
                                     </li>
                                     <%
                                         }

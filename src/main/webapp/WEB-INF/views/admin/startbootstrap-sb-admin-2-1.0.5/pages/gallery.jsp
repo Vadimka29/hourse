@@ -166,7 +166,7 @@
                     <div class="row item" data-photoid="<%=photo.getPhotoId()%>">
                         <div class="imgContainer">
                             <div class="cols col-5">
-                                <img src="/resources/uploads/gallery/<%=photo.getDescription()%>" alt="<%=photo.getDescription()%>"/>
+                                <img src="/get-gallery?name=<%=photo.getDescription()%>" alt="<%=photo.getDescription()%>"/>
 
                             </div>
                             <div class="cols col-7">

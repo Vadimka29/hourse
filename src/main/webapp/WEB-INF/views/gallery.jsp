@@ -1,5 +1,6 @@
 <%@ page import="ua.com.iweb.enteties.GalleryEntity" %>
 <%@ page import="java.util.List" %>
+<%@ page import="ua.com.iweb.config.ServicePath" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +45,7 @@
                                         List<GalleryEntity> photos = (List<GalleryEntity>) request.getAttribute("photos");
                                         for(GalleryEntity photo: photos){
                                     %>
-                                    <div class="item" style="background:url('/resources/uploads/gallery/<%=photo.getDescription()%>'); background-size:cover;" data-image="/resources/uploads/gallery/<%=photo.getDescription()%>" data-description="<%=photo.getSecondTitle()%>">
+                                    <div class="item" style="background:url('/get-gallery?name=<%=photo.getDescription()%>'); background-size:cover;" data-image="/get-gallery?name=<%=photo.getDescription()%>" data-description="<%=photo.getSecondTitle()%>">
                                         <div class="description" ><div><span><%=photo.getTitle()%></span></div></div>
                                     </div>
                                     <%

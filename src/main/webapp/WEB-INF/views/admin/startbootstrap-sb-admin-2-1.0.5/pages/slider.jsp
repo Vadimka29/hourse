@@ -134,7 +134,7 @@
                         for(SliderEntity photo: photos){
                     %>
                     <div class="item" style="width: 31.33333333%">
-                        <img src="/resources/uploads/slider/<%=photo.getDescription()%>" alt="<%=photo.getDescription()%>"/>
+                        <img src="/get-slider?name=<%=photo.getDescription()%>" alt="<%=photo.getDescription()%>"/>
                     </div>
                     <%
                         }
