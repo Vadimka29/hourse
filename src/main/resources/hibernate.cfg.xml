@@ -16,7 +16,7 @@
 
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">ruby</property>
+        <property name="hibernate.connection.password">omxalxrf14</property>
         <!--<property name="hibernate.connection.password">fksppass</property>-->
         <!--for performance reasons changed to MyISAM from org.hibernate.dialect.MySQLInnoDBDialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
