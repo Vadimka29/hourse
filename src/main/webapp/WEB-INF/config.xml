@@ -18,8 +18,8 @@
     http://docs.cksource.com/CKFinder_2.x/Developers_Guide/Java/Configuration/baseURL_and_baseDir
     -->
     <!--<baseDir>/resources/js/ckfinder/userfiles</baseDir>-->
-    <baseURL>/resources/useruploads</baseURL>
-    <baseDir>/home/vanya/Projects/iweb/hourse/target/hourse/resources/useruploads</baseDir>
+    <baseURL>/get-postphoto</baseURL>
+    <baseDir>/home/vadym/static/userdata/</baseDir>
     <licenseKey></licenseKey>
     <licenseName></licenseName>
     <!--
@@ -68,8 +68,8 @@
             <deniedExtensions></deniedExtensions>
         </type>
         <type name="Images">
-            <url>%BASE_URL%_images/</url>
-            <directory>%BASE_DIR%_zimages</directory>
+            <url>%BASE_URL%</url>
+            <directory>%BASE_DIR%_images</directory>
             <maxSize>0</maxSize>
             <allowedExtensions>bmp,gif,jpeg,jpg,png</allowedExtensions>
             <deniedExtensions></deniedExtensions>

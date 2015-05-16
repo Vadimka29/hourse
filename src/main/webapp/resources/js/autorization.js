@@ -20,11 +20,11 @@ function hidePopup(){
     $(".popUp").fadeOut("fast");
     setTimeout(removePopup,500);
     $(".container").removeClass("blured");
-    console.log(data);
+    //console.log(data);
     $.ajax({
         type: 'POST',
         url: 'register_post',
-        data: data,
+        //data: data,
         async:false,
         success: function(data){
             window.location.href="/";

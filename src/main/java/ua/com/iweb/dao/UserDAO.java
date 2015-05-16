@@ -68,4 +68,39 @@ public class UserDAO implements UserDAOInterface {
             }
         }
     }
+
+    @Override
+    public int getCountWithSuchLogin(String login) throws SQLException {
+        if(login == null)
+            return -1;
+        Session session = null;
+        try {
+            session = HibernateService.getSession();
+            Query q = session.createQuery("FROM UserEntity WHERE userLogin = :login");
+            q.setParameter("login", login);
+            return q.list().size();
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public UserEntity getUserByLogin(String login) throws SQLException {
+        System.out.println("login: " + login);
+        if(login == null)
+            throw new IllegalArgumentException("no such login");
+        Session session = null;
+        try {
+            session = HibernateService.getSession();
+            Query q = session.createQuery("FROM UserEntity WHERE userLogin = :login");
+            q.setParameter("login", login);
+            return  (UserEntity) q.list().get(0);
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
 }

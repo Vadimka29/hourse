@@ -56,7 +56,24 @@ public class GetControllers {
 	}
 
     @RequestMapping(method = RequestMethod.GET, value="/order")
-    public ModelAndView getOrder(HttpServletResponse response) throws IOException{
+    public ModelAndView getOrder(HttpServletRequest request) throws IOException{
+        String login = null;
+        Cookie[] cookies = request.getCookies();
+        //if there are not cookies
+        if(cookies.length == 0){
+            login = (String) request.getSession().getAttribute("user");
+        }
+        for(int i = 0; i < cookies.length; i++){
+            if("isAuth".equals(cookies[i].getName())){
+                login = cookies[i].getValue();
+            }
+        }
+        if((!"admin".equals(login)) || login.isEmpty() || login == null){
+            return new ModelAndView("redirect:/sale");
+        }
+        if("unregistered".equals(request.getSession().getAttribute("user"))){
+            return new ModelAndView("redirect:/sale");
+        }
         return new ModelAndView("addOrder");
     }
     @RequestMapping(method = RequestMethod.GET, value="/clubs")
@@ -92,8 +109,11 @@ public class GetControllers {
         return new ModelAndView("/events/eventsResults");
     }
     @RequestMapping(method = RequestMethod.GET, value="/admin")
-    public ModelAndView getAdmin(@CookieValue("isAuth") String login) throws IOException{
+    public ModelAndView getAdmin(@CookieValue("isAuth") String login, HttpServletRequest request) throws IOException{
         if((!"admin".equals(login)) || login.isEmpty() || login == null){
+            return new ModelAndView("redirect:/");
+        }
+        if("unregistered".equals(request.getSession().getAttribute("user"))){
             return new ModelAndView("redirect:/");
         }
         return new ModelAndView("/admin/startbootstrap-sb-admin-2-1.0.5/pages/main");
@@ -167,6 +187,21 @@ public class GetControllers {
             return;
         }
         File image = new File(ServicePath.PATH_TO_SLIDER_IMAGES + "/" + imageName);
+        byte[] byteImage = IOUtils.toByteArray(new FileInputStream(image));
+        response.getOutputStream().write(byteImage);
+    }
+    @RequestMapping(value = "/get-postphoto/{userPhoto}")
+    public void getImageFromUserPost(HttpServletRequest request, HttpServletResponse response,
+                                     @PathVariable String userPhoto) throws IOException{
+        String url = request.getRequestURI();
+        String[] data = url.split("/");
+        String imageName = data[data.length - 1];
+        System.out.println("Url: " + url);
+        System.out.println("image Name: " + imageName);
+        if(imageName == null){
+            return;
+        }
+        File image = new File(ServicePath.PATH_TO_USER_PHOTO + "/" + imageName);
         byte[] byteImage = IOUtils.toByteArray(new FileInputStream(image));
         response.getOutputStream().write(byteImage);
     }

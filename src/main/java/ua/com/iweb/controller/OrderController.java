@@ -28,7 +28,7 @@ public class OrderController {
 
     @RequestMapping(value = "/order/new", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    public void makeOrder(@RequestBody final String json) throws IOException{
+    public void makeOrder(@RequestBody final String json) throws IOException {
         String data = URLDecoder.decode(json.substring(0, json.length()), "utf-8");
         System.out.println("json data:" + data);
         ObjectMapper mapper = new ObjectMapper();

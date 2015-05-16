@@ -1,3 +1,9 @@
+<%@ page import="org.springframework.context.ApplicationContext" %>
+<%@ page import="org.springframework.context.annotation.AnnotationConfigApplicationContext" %>
+<%@ page import="ua.com.iweb.config.DaoBeanConfig" %>
+<%@ page import="ua.com.iweb.dao.OrderDAO" %>
+<%@ page import="ua.com.iweb.dao.UserDAO" %>
+<%@ page import="ua.com.iweb.enteties.UserEntity" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://ckeditor.com" prefix="ckeditor" %>
@@ -65,6 +71,25 @@
                                         <input type="radio" name="orderType" value="transport"><span class="locale" data-name="add_order__order_category__transport"></span><Br>
                                         <input type="radio" name="orderType" value="ammunition"><span class="locale" data-name="add_order__order_category__ammunition"></span><Br>
                                         <input type="radio" name="orderType" value="etc"><span class="locale" data-name="add_order__order_category__various"></span><Br>
+                                        <%--код для добавление телефона и имени автора!!--%>
+                                        <%
+                                            String userLogin = (String) request.getSession().getAttribute("user");
+                                            if(userLogin == null){
+                                                Cookie[] cookies = request.getCookies();
+                                                for(int i = 0; i < cookies.length; i++){
+                                                    if("isAuth".equals(cookies[i].getName())){
+                                                        userLogin = cookies[i].getValue();
+                                                    }
+                                                }
+                                            }
+                                            ApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
+                                            UserDAO userDAO = (UserDAO) context.getBean("userDAO");
+                                            UserEntity user = userDAO.getUserByLogin(userLogin);
+
+                                        %>
+                                        <div><%=userLogin%></div>
+                                        <input type="hidden" value="<%=user.getUserPhone()%>">
+                                        <input type="hidden" value="<%=user.getUserName()%>">
                                     </div>
 
 

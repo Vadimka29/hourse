@@ -60,7 +60,7 @@ public class AuthorizationController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/register_post")
-    public void register(HttpServletResponse response, HttpSession session, @RequestBody String json) throws IOException {
+    public void register(HttpServletResponse response, HttpSession session, @RequestBody String json) throws IOException, SQLException {
         String data = URLDecoder.decode(json.substring(0, json.length()-1), "utf-8");
         System.out.println("data: " + data);
         ObjectMapper mapper = new ObjectMapper();
@@ -68,6 +68,10 @@ public class AuthorizationController {
         System.out.println(user);
         ApplicationContext context = new AnnotationConfigApplicationContext(DaoBeanConfig.class);
         UserDAO userDAO = (UserDAO) context.getBean("userDAO");
+        System.out.println("login count: " + userDAO.getCountWithSuchLogin(user.getUserLogin()));
+        if(userDAO.getCountWithSuchLogin(user.getUserLogin()) > 0){
+            throw new IllegalArgumentException("There is such login");
+        }
         try {
             userDAO.registerUser(user);
         } catch (SQLException e){

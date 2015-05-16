@@ -7,4 +7,5 @@ package ua.com.iweb.config;
 public interface ServicePath {
     String PATH_TO_SLIDER_IMAGES = "/home/vadym/static/slider";
     String PATH_TO_GALLERY_IMAGES = "/home/vadym/static/gallery";
+    String PATH_TO_USER_PHOTO = "/home/vadym/static/userdata/_images";
 }
